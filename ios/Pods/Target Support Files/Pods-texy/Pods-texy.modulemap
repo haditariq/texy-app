@@ -1,0 +1,6 @@
+module Pods_texy {
+  umbrella header "Pods-texy-umbrella.h"
+
+  export *
+  module * { export * }
+}
