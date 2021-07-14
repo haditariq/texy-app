@@ -9,8 +9,8 @@ import PickupLinesSlice from './pickupLines';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  // whitelist: ['SwipeCounter', 'PickupLines']
-  blacklist: ['SwipeCounter', 'PickupLines']
+  whitelist: ['SwipeCounter', 'PickupLines']
+  // blacklist: ['SwipeCounter', 'PickupLines']
 }
 
 const reducers = combineReducers({
