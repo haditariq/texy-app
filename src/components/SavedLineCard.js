@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import Copy from '../components/copy';
 
 const SavedLineCard = ({ line }) => {
-  console.warn(line)
   const copyToClipboard = (line) => {
     Clipboard.setString(line);
   };

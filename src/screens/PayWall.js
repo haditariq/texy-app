@@ -44,7 +44,7 @@ const styles = {
     alignItems: 'center',
     padding: 20,
     width: width - 15,
-    marginTop:20,
+    marginTop: 40,
   },
   bgContainer: {
     backgroundColor: "#FFF5F7",

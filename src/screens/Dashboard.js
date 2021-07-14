@@ -15,30 +15,35 @@ import {addPickupLine} from '../state/pickupLines';
 import Copy from '../components/copy'
 import pickupLinesDataSet from '../data/pickuplinesData.json';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.SwipeCounter.count);
   const [randomNumber, setRandomNumber] = useState(1);
 
-  // useEffect(()=>{ 
-  //  giveRandomNumber();
-  // }, []);
+  useEffect(()=>{ 
+      checkSwipeLimit();
+  }, []);
 
   const onSwipe = () => {
     dispatch(incrementSwipeCount());
     giveRandomNumber();
+    checkSwipeLimit();
   };
 
   const giveRandomNumber = ()=>{
    setRandomNumber(Math.floor(Math.random() * pickupLinesDataSet.length));
   }
 
+  const checkSwipeLimit = ()=>{
+    if(MAX_SWIPES <= parseInt(count)) props.navigation.navigate("PayWall")
+  }
   const rightSaveSwipe = () => {
     onSwipe();
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   };
 
   // return <View/>;
+
 
   return (
     <SafeAreaView style={styles.container}>

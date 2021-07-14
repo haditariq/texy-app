@@ -15,7 +15,6 @@ const App = () => {
       } else if (count > 49) {
         // restore IAP
       }
-      console.warn({count, pick});
   }, []);
 
   return <Navigation />;

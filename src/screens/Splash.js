@@ -5,7 +5,7 @@ import bgImage from "../assets/happy-youngster-bg.png";
 const Splash = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
-      // props.navigation.navigate("BottomTab");
+      props.navigation.navigate("BottomTab");
     }, 5000);
   });
 
@@ -71,7 +71,8 @@ const styles = {
     color: "#fff",
     fontSize: 18,
     textAlign: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginTop: 15
   }
 };
 

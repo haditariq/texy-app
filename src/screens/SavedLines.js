@@ -15,12 +15,13 @@ const SavedLines = () => {
     <SafeAreaView style={styles.container}>
       <Header type="text" text="Saved Lines"/>
       <View style={styles.content}>
+      {pickupLinesData.length > 0 ? 
+
        <SwipeListView
       data={datas}
       renderItem={(data, rowMap) => (
       <SavedLineCard line={data.item.Question} />
       )}
-
       renderHiddenItem={(data, rowMap) => (
         <View style={styles.rowBack}>
           <TouchableOpacity onPress={() => onRemoveSavedLine(data.item)}>
@@ -33,7 +34,7 @@ const SavedLines = () => {
       )}
       // leftOpenValue={75}
       rightOpenValue={-85}
-    />
+    />: <Text>No data</Text>}
       </View>
     </SafeAreaView>
   );
@@ -45,7 +46,10 @@ const styles = {
     backgroundColor: "#fff"
   },
   content: {
-    padding: 20
+    padding: 20,
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
   },
   rowBack: {
     flex:1,
