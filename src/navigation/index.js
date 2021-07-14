@@ -14,9 +14,9 @@ const Tab = createBottomTabNavigator();
 const BottomTab = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="SavedLines"
       tabBarOptions={{
-        activeTintColor: 'pink',
+        activeTintColor: 'red',
       }}
       >
       <Tab.Screen 
@@ -30,6 +30,7 @@ const BottomTab = () => {
         options={{
           tabBarLabel: '',
           tabBarIcon: ({ color, size }) => <Image style={styles.icon} source={require("../assets/logo.png")} />,
+          
         }}
         name="SavedLines"
         component={SavedLines} />
@@ -41,7 +42,7 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-          initialRouteName='BottomBar'
+          initialRouteName='BottomTab'
       >
         <Stack.Screen
           options={{ headerShown: false }}

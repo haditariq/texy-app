@@ -18,7 +18,7 @@ const styles = {
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   text: {
     fontSize: 22

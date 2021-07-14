@@ -1,19 +1,29 @@
-import React from 'react'
-import {View} from 'react-native';
+import React from "react";
+import { View, Text, SafeAreaView } from "react-native";
+import SavedLineCard from "../components/SavedLineCard";
 
-const SavedLines = ()=> {
+const SavedLines = () => {
+  const onRemoveSavedLine = (line) => {
+    console.warn(line);
+  };
+  
   return (
-    <View style={styles.container}>
-      
-    </View>
-  )
-}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <SavedLineCard onRemoveSavedLine={(line) => onRemoveSavedLine(line)} />
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = {
-  container:{
-    flex:1,
-    backgroundColor:'#fff'
+  container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  content: {
+    padding: 20
   }
-}
+};
 
 export default SavedLines;

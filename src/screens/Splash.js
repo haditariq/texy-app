@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  View,
-  ImageBackground,
-  Text,
-  StyleSheet,
-  Image
-} from "react-native";
+import { View, ImageBackground, Text, StyleSheet, Image } from "react-native";
 import bgImage from "../assets/happy-youngster-bg.png";
 
 const Splash = (props) => {
