@@ -1,39 +1,30 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import { SwipeListView } from "react-native-swipe-list-view";
+import Clipboard from "@react-native-community/clipboard";
 
-let data = Array(20)
-  .fill("")
-  .map((_, i) => ({ key: `${i}`, text: `item #${i}` }));
-const SavedLineCard = ({onRemoveSavedLine}) => {
+const SavedLineCard = ({ line }) => {
+  const copyToClipboard = (line) => {
+    Clipboard.setString(line);
+  };
+
   return (
-    <SwipeListView
-      data={data}
-      renderItem={(data, rowMap) => (
-        <View style={styles.container}>
-          <Text style={styles.text}>
-            Are you a camera? Because every time I look at you I smiled.
-          </Text>
-          <TouchableOpacity style={styles.copyContainer}>
-            <Text style={[styles.text, { color: "#000", lineHeight: 0 }]}>
-              Copy
-            </Text>
-          </TouchableOpacity>
-        </View>
-      )}
-      renderHiddenItem={(data, rowMap) => (
-        <View style={styles.rowBack}>
-        <TouchableOpacity onPress={()=> onRemoveSavedLine(data)}>
-          <Image
-            style={styles.dustbinIcon}
-            source={require("../assets/dustbin.png")}
-          />
-          </TouchableOpacity>
-        </View>
-      )}
-      // leftOpenValue={75}
-      rightOpenValue={-85}
-    />
+    <View style={styles.container}>
+      <Text style={styles.text}>{line}</Text>
+      <TouchableOpacity
+        style={[styles.copyContainer]}
+        onPress={() => copyToClipboard(line)}
+      >
+        <Image style={styles.image} source={require("../assets/copy-icon.png")} />
+        <Text
+          style={[
+            styles.text,
+            { color: "#000", lineHeight: 0, textAlign: "center" }
+          ]}
+        >
+          Copy!
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 const styles = {
@@ -43,33 +34,32 @@ const styles = {
     padding: 20,
     borderRadius: 25,
     flexDirection: "row",
-    marginVertical: 5
+    marginVertical: 5,
+    justifyContent: "space-between",
+
   },
   text: {
     color: "white",
     fontSize: 16,
     fontWeight: "bold",
     backgroundColor: "#000000c",
-    width: "80%",
+    width: "78%",
     lineHeight: 20
   },
   copyContainer: {
     backgroundColor: "#fff",
-    borderRadius: 30,
-    padding: 8,
-    width: "20%",
+    borderRadius: 20,
+    width: "22%",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    height: 30,
+    alignSelf: "center",
+    flexDirection:'row',
+    paddingHorizontal: 5
   },
-  rowBack: {
-    backgroundColor: "red",
-    alignItems: "flex-end",
-    justifyContent:'center'
-  },
-  dustbinIcon:{
-    height: 60,
-    width: 80,
-    backgroundColor:'blue'
+  image:{
+    height:15,
+    width:15
   }
 };
 export default SavedLineCard;

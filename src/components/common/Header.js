@@ -3,9 +3,16 @@ import { View, Text, Image } from "react-native";
 
 const Header = ({ text, type }) => {
   return (
-    <View style={[styles.container]}>
+    <View
+      style={[
+        styles.container,
+        type == "text"
+          ? { borderBottomColor: "#EFF3F8" }
+          : { borderBottomColor: "#fff" }
+      ]}
+    >
       {type == "text" ? (
-        <Text style={styles.text}>{props.text}</Text>
+        <Text style={styles.text}>{text}</Text>
       ) : (
         <Image style={styles.image} source={require("../../assets/logo.png")} />
       )}
@@ -18,10 +25,12 @@ const styles = {
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 10
+    paddingVertical: 13,
+    borderBottomWidth: 1
   },
   text: {
-    fontSize: 22
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   image: {
     height: 50,
