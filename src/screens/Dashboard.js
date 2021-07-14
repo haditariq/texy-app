@@ -17,17 +17,28 @@ import pickupLinesDataSet from '../data/pickuplinesData.json';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const [currentSwipedCount, setCurrentSwipedCount] = useState(0);
   const count = useSelector((state) => state.SwipeCounter.count);
-  let randomNumber = pickupLinesDataSet[Math.floor(Math.random() * pickupLinesDataSet.length)];
+  const [randomNumber, setRandomNumber] = useState();
+
+  useEffect(()=>{ 
+   giveRandomNumber();
+  }, []);
+
   const onSwipe = () => {
+    giveRandomNumber();
     dispatch(incrementSwipeCount());
   };
 
+  const giveRandomNumber = ()=>{
+   setRandomNumber(Math.floor(Math.random() * pickupLinesDataSet.length));
+  }
+
   const rightSaveSwipe = () => {
     onSwipe();
-    dispatch(addPickupLine(pickupLinesDataSet[1]));
+    dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   };
+
+  // return <View/>;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -36,13 +47,12 @@ const Dashboard = () => {
         <View style={styles.swipeContainer}>
           <Text>Already Swiped: {count}</Text>
           <Text>Total Swipes Available: {MAX_SWIPES}</Text>
-          
-          <Text
-            style={{color:'#fff', width: '70%', textAlign:'center', marginTop: 20}}
-          >{randomNumber.Topic}</Text>
-               <Text
-            style={{color:'#fff', width: '70%', textAlign:'center', margin: 5}}
-          >{randomNumber.Question}</Text>
+          <Text style={{color:'#fff', width: '70%', textAlign:'center', marginTop: 20}}>
+            {pickupLinesDataSet[randomNumber].Topic}
+          </Text>
+          <Text style={{color:'#fff', width: '70%', textAlign:'center', margin: 5}}>
+            {pickupLinesDataSet[randomNumber].Question}
+          </Text>
         <Copy/>
         </View>
         <View style={styles.swipeButtonContainer}>

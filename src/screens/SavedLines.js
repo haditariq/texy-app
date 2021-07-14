@@ -7,7 +7,6 @@ import Header from "../components/common/Header";
 
 const SavedLines = () => {
   const pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
-  console.warn(pickupLinesData)
 
   const onRemoveSavedLine = (line) => {
     console.warn(line);
