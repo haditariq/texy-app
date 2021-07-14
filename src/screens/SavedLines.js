@@ -2,25 +2,13 @@ import React from "react";
 import { View, Text, SafeAreaView, TouchableOpacity, Image } from "react-native";
 import SavedLineCard from "../components/SavedLineCard";
 import { SwipeListView } from "react-native-swipe-list-view";
+import { useSelector, useDispatch } from 'react-redux';
 import Header from "../components/common/Header";
 
-let data = [
-  {
-    id:1,
-    line: "Are you a camera? Because every time I look at you I smiled."
-  },{
-    id:2,
-    line: "Cool yoga pose - and not so easy. How long have you been practising?"
-  },{
-    id:3,
-    line: "I’m asking around: Where can you get the best guacamole in town? Still haven't got a definitive answer…"
-  },{
-    id:4,
-    line: "Coachella or Glastonbury?"
-  },
-]
-
 const SavedLines = () => {
+  const pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
+  console.warn(pickupLinesData)
+
   const onRemoveSavedLine = (line) => {
     console.warn(line);
   };
@@ -28,16 +16,13 @@ const SavedLines = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header type="text" text="Saved Lines"/>
-
       <View style={styles.content}>
        <SwipeListView
-      data={data}
+      data={pickupLinesData}
       renderItem={(data, rowMap) => (
-      <SavedLineCard line={data.item.line} 
-          // onRemoveSavedLine={onRemoveSavedLine(data.item)}
-         />
-          
+      <SavedLineCard line={data.item.Question} />
       )}
+
       renderHiddenItem={(data, rowMap) => (
         <View style={styles.rowBack}>
           <TouchableOpacity onPress={() => onRemoveSavedLine(data.item)}>
