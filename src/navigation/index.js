@@ -7,33 +7,56 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Splash from "../screens/Splash";
 import Dashboard from "../screens/Dashboard";
 import SavedLines from "../screens/SavedLines";
+import PayWall from "../screens/PayWall";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const DashboardStack = () => {
+  return (
+    <Stack.Navigator initialRouteName="BottomTab">
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Dashboard"
+        component={Dashboard}
+      />
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="PayWall"
+        component={PayWall}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const BottomTab = () => {
   return (
     <Tab.Navigator
       initialRouteName="SavedLines"
       tabBarOptions={{
-        activeTintColor: 'red',
+        activeTintColor: "red"
       }}
-      >
-      <Tab.Screen 
-      options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color, size }) => <Image style={styles.icon} source={require("../assets/logo.png")} />,
-        }}
-        name="Dashboard"
-        component={Dashboard} />
-      <Tab.Screen 
+    >
+      <Tab.Screen
         options={{
-          tabBarLabel: '',
-          tabBarIcon: ({ color, size }) => <Image style={styles.icon} source={require("../assets/logo.png")} />,
-          
+          tabBarLabel: "",
+          tabBarIcon: ({ color, size }) => (
+            <Image style={styles.icon} source={require("../assets/logo.png")} />
+          )
+        }}
+        name="DashboardStack"
+        component={DashboardStack}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: ({ color, size }) => (
+            <Image style={styles.icon} source={require("../assets/logo.png")} />
+          )
         }}
         name="SavedLines"
-        component={SavedLines} />
+        component={SavedLines}
+      />
     </Tab.Navigator>
   );
 };
@@ -41,9 +64,7 @@ const BottomTab = () => {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-          initialRouteName='BottomTab'
-      >
+      <Stack.Navigator initialRouteName="BottomTab">
         <Stack.Screen
           options={{ headerShown: false }}
           name="Splash"
@@ -60,9 +81,9 @@ const Navigation = () => {
 };
 
 const styles = {
-  icon:{
-    height:20,
-    width:20
+  icon: {
+    height: 20,
+    width: 20
   }
-}
+};
 export default Navigation;
