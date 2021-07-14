@@ -1,6 +1,0 @@
-module Pods_texy_texyTests {
-  umbrella header "Pods-texy-texyTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
