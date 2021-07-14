@@ -34,14 +34,15 @@ const BottomTab = () => {
     <Tab.Navigator
       initialRouteName="DashboardStack"
       tabBarOptions={{
-        activeTintColor: "red"
+        activeTintColor: "red",
+        inActiveTiniColor: "grey"
       }}
     >
       <Tab.Screen
         options={{
-          tabBarLabel: "",
+          tabBarLabel: "Discover",
           tabBarIcon: ({ color, size }) => (
-            <Image style={styles.icon} source={require("../assets/logo.png")} />
+            <Image style={[styles.icon, {tintColor: color}]} source={require("../assets/discover.png")} />
           )
         }}
         name="DashboardStack"
@@ -49,9 +50,9 @@ const BottomTab = () => {
       />
       <Tab.Screen
         options={{
-          tabBarLabel: "",
+          tabBarLabel: "Saved Lines",
           tabBarIcon: ({ color, size }) => (
-            <Image style={styles.icon} source={require("../assets/logo.png")} />
+            <Image style={[styles.icon, {tintColor:color}]} source={require("../assets/savedLinesIcon.png")} />
           )
         }}
         name="SavedLines"
@@ -82,8 +83,9 @@ const Navigation = () => {
 
 const styles = {
   icon: {
-    height: 20,
-    width: 20
+    height: 25,
+    width: 25,
+    tintColor:'grey'
   }
 };
 export default Navigation;
