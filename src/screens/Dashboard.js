@@ -18,15 +18,15 @@ import pickupLinesDataSet from '../data/pickuplinesData.json';
 const Dashboard = () => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.SwipeCounter.count);
-  const [randomNumber, setRandomNumber] = useState();
+  const [randomNumber, setRandomNumber] = useState(1);
 
-  useEffect(()=>{ 
-   giveRandomNumber();
-  }, []);
+  // useEffect(()=>{ 
+  //  giveRandomNumber();
+  // }, []);
 
   const onSwipe = () => {
-    giveRandomNumber();
     dispatch(incrementSwipeCount());
+    giveRandomNumber();
   };
 
   const giveRandomNumber = ()=>{

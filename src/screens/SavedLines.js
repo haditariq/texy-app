@@ -6,10 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import Header from "../components/common/Header";
 
 const SavedLines = () => {
-  const pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
-
+  let pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
+  let datas = pickupLinesData;
   const onRemoveSavedLine = (line) => {
-    console.warn(line);
   };
 
   return (
@@ -17,7 +16,7 @@ const SavedLines = () => {
       <Header type="text" text="Saved Lines"/>
       <View style={styles.content}>
        <SwipeListView
-      data={pickupLinesData}
+      data={datas}
       renderItem={(data, rowMap) => (
       <SavedLineCard line={data.item.Question} />
       )}
