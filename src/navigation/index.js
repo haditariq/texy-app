@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 
 const DashboardStack = () => {
   return (
-    <Stack.Navigator initialRouteName="PayWall">
+    <Stack.Navigator initialRouteName="Dashboard">
       <Stack.Screen
         options={{ headerShown: false }}
         name="Dashboard"
@@ -35,7 +35,8 @@ const BottomTab = () => {
       initialRouteName="DashboardStack"
       tabBarOptions={{
         activeTintColor: "red",
-        inActiveTiniColor: "grey"
+        inActiveTiniColor: "grey",
+         style: { height: 85, backgroundColor: '#fff' },
       }}
     >
       <Tab.Screen
@@ -65,7 +66,7 @@ const BottomTab = () => {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="BottomTab">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           options={{ headerShown: false }}
           name="Splash"

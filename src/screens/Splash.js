@@ -5,7 +5,7 @@ import bgImage from "../assets/happy-youngster-bg.png";
 const Splash = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
-      props.navigation.navigate("DashboardTab");
+      props.navigation.navigate("BottomTab");
     }, 5000);
   });
 
