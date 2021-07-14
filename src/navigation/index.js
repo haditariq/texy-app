@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 
 const DashboardStack = () => {
   return (
-    <Stack.Navigator initialRouteName="BottomTab">
+    <Stack.Navigator initialRouteName="PayWall">
       <Stack.Screen
         options={{ headerShown: false }}
         name="Dashboard"
@@ -32,7 +32,7 @@ const DashboardStack = () => {
 const BottomTab = () => {
   return (
     <Tab.Navigator
-      initialRouteName="SavedLines"
+      initialRouteName="DashboardStack"
       tabBarOptions={{
         activeTintColor: "red"
       }}

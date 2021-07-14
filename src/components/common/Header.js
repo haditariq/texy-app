@@ -8,7 +8,7 @@ const Header = ({ text, type }) => {
         styles.container,
         type == "text"
           ? { borderBottomColor: "#EFF3F8" }
-          : { borderBottomColor: "#fff" }
+          : { borderBottomColor: "transparent" }
       ]}
     >
       {type == "text" ? (
