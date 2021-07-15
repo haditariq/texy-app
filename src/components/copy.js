@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import Clipboard from "@react-native-community/clipboard";
-
+import { wp } from "../utils/responsive";
 const Copy = ({ line }) => {
   const copyToClipboard = (line) => {
     Clipboard.setString(line);
@@ -13,12 +13,7 @@ const Copy = ({ line }) => {
         onPress={() => copyToClipboard(line)}
       >
         <Image style={styles.image} source={require("../assets/copy-icon.png")} />
-        <Text
-          style={[
-            styles.text,
-            { color: "#000", lineHeight: 0, textAlign: "center" }
-          ]}
-        >
+        <Text style={styles.copyText}>
           Copy!
         </Text>
       </TouchableOpacity>
@@ -38,7 +33,13 @@ const styles = {
   },
   image:{
     height:15,
-    width:15
+    width:15,
+    marginRight:4
+  },
+  copyText:{
+    color: "#000",
+    textAlign: "center",
+    fontSize: wp(3.5),
   }
 };
 export default Copy;

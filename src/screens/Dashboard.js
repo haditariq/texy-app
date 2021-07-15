@@ -14,6 +14,7 @@ import {incrementSwipeCount} from '../state/swipeCounter'
 import {addPickupLine} from '../state/pickupLines';
 import Copy from '../components/copy'
 import pickupLinesDataSet from '../data/pickuplinesData.json';
+import {wp} from '../utils/responsive'
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
@@ -102,9 +103,9 @@ const styles = {
     padding: 20
   },
   image: {
-    height: 90,
-    width: 90,
-    resizeMode: "cover",
+    height: wp(20),
+    width: wp(20),
+    resizeMode: "contain",
     marginHorizontal: 10
   }
 };

@@ -8,6 +8,7 @@ import Splash from "../screens/Splash";
 import Dashboard from "../screens/Dashboard";
 import SavedLines from "../screens/SavedLines";
 import PayWall from "../screens/PayWall";
+import {wp} from '../utils/responsive'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -36,7 +37,7 @@ const BottomTab = () => {
       tabBarOptions={{
         activeTintColor: "#FF6F87",
         inActiveTiniColor: "grey",
-         style: { height: 85, backgroundColor: '#fff' },
+         style: { backgroundColor: '#fff' },
       }}
     >
       <Tab.Screen

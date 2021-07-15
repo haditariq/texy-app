@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import Copy from '../components/copy';
+import { wp } from "../utils/responsive";
 
 const SavedLineCard = ({ line }) => {
   const copyToClipboard = (line) => {
@@ -27,9 +28,8 @@ const styles = {
   },
   text: {
     color: "white",
-    fontSize: 16,
+    fontSize: wp(3.5),
     fontWeight: "bold",
-    backgroundColor: "#000000c",
     width: "78%",
     lineHeight: 20
   },

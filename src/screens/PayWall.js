@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, Image, Text, Dimensions, TouchableOpacity } from "react-native";
 import Header from "../components/common/Header";
+import { wp } from "../utils/responsive";
 
 const {width} =  Dimensions.get("window");
 
@@ -18,7 +19,7 @@ const PayWall = () => {
           Get immediate access to all opening lines and increase the chance to receive a reply by 60%. 
           </Text> 
           <Text style={[styles.text, {marginTop:20}]}>One payment. Forever.</Text>
-          <Text style={[styles.text, {marginTop:20,fontSize:20}]}>Only 289 CZK</Text>
+          <Text style={[styles.text, {marginTop:20,fontSize:wp(4.5)}]}>Only 289 CZK</Text>
           
         </View>
         <View style={styles.continueButtonContainer}>
@@ -63,7 +64,7 @@ const styles = {
   },
   text:{
     color: "#000",
-    fontSize: 18,
+    fontSize: wp(4.5),
     fontWeight: "bold",
     textAlign: "center",
     lineHeight:30

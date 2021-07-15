@@ -16,7 +16,6 @@ const SavedLines = () => {
       <Header type="text" text="Saved Lines"/>
       <View style={styles.content}>
       {pickupLinesData.length > 0 ? 
-
        <SwipeListView
       data={datas}
       renderItem={(data, rowMap) => (

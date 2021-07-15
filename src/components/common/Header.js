@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { wp } from "../../utils/responsive";
 
 const Header = ({ text, type }) => {
   return (
@@ -29,7 +30,7 @@ const styles = {
     borderBottomWidth: 1
   },
   text: {
-    fontSize: 20,
+    fontSize: wp(4.5),
     fontWeight: 'bold'
   },
   image: {

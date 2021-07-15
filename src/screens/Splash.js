@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ImageBackground, Text, StyleSheet, Image } from "react-native";
 import bgImage from "../assets/happy-youngster-bg.png";
-
+import {wp} from '../utils/responsive.js'
 const Splash = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
@@ -54,22 +54,14 @@ const styles = {
     borderRadius: 20
   },
   logoText: {
-    fontSize: 22,
+    fontSize: wp(6),
     color: "#fff",
     fontWeight: "bold",
     marginLeft: 10
   },
-  text: {
-    color: "white",
-    fontSize: 42,
-    lineHeight: 84,
-    fontWeight: "bold",
-    textAlign: "center",
-    backgroundColor: "#000000c"
-  },
   splashText: {
     color: "#fff",
-    fontSize: 18,
+    fontSize: wp(4),
     textAlign: "center",
     fontWeight: "bold",
     marginTop: 15
