@@ -76,7 +76,7 @@ const styles = {
     // flex:1,
     justifyContent:'center',
     alignItems:'center',
-    marginVertical: wp(8)
+    marginVertical: wp(10)
   },
   continueButton:{
       backgroundColor:'#FF6F87',
