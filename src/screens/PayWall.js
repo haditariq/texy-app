@@ -49,7 +49,7 @@ const styles = {
   },
   bgContainer: {
     backgroundColor: "#FFF5F7",
-    padding: 50,
+    padding: wp(11),
     paddingTop: width * 0.5,
     position: 'relative',
     borderRadius:20
@@ -60,19 +60,19 @@ const styles = {
     resizeMode: 'contain',
     position: 'absolute',
     top: -40,
-    left:-18
+    left:-15
   },
   text:{
     color: "#000",
     fontSize: wp(4.5),
     fontWeight: "bold",
     textAlign: "center",
-    lineHeight:30
+    // lineHeight:30
   },
   continueButtonContainer:{
     flex:1,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
   },
   continueButton:{
       backgroundColor:'#FF6F87',
