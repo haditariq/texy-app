@@ -46,13 +46,16 @@ const styles = {
     padding: 20,
     width: width - 15,
     marginTop: 40,
+    paddingBottom: 0
   },
   bgContainer: {
+    flex:1,
     backgroundColor: "#FFF5F7",
     padding: wp(11),
     paddingTop: width * 0.5,
     position: 'relative',
-    borderRadius:20
+    borderRadius:20,
+    alignSelf:'flex-end'
   },
   bg: {
     width: width - (p * 2),
@@ -70,9 +73,10 @@ const styles = {
     // lineHeight:30
   },
   continueButtonContainer:{
-    flex:1,
+    // flex:1,
     justifyContent:'center',
     alignItems:'center',
+    marginVertical: wp(8)
   },
   continueButton:{
       backgroundColor:'#FF6F87',
