@@ -10,7 +10,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (count === null) {
+    if (count == 0) {
       dispatch(initializeSwiperCount());
     } else if (count > 49) {
       // restore IAP

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const SwipeCounterSlice = createSlice({
   name: "SwipeCounter",
   initialState: {
-    count: null
+    count: 0
   },
   reducers: {
     initializeSwiperCount: (state)=>{

@@ -29,8 +29,8 @@ const Dashboard = (props) => {
 
   const onSwipe = () => {
     dispatch(incrementSwipeCount());
-    giveRandomNumber();
     checkSwipeLimit();
+    giveRandomNumber();
   };
 
   const giveRandomNumber = () => {
@@ -70,13 +70,11 @@ const Dashboard = (props) => {
               console.log("onSwipedAll");
             }}
             cardIndex={0}
-            backgroundColor={"#4FD0E9"}
+            backgroundColor={"transparent"}
             stackSize={3}
             disableTopSwipe={true}
             disableBottomSwipe={true}
-          >
-            <Text>content</Text>
-          </Swiper>
+          />
         </View>
 
         <View style={styles.swipeButtonContainer}>
@@ -112,7 +110,6 @@ const styles = {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FF6F87"
   },
   swipeButtonContainer: {
     flexDirection: "row",
