@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ImageBackground, Text, StyleSheet, Image } from "react-native";
 import bgImage from "../assets/happy-youngster-bg.png";
-import {wp} from '../utils/responsive.js'
+import { wp } from "../utils/responsive.js";
 const Splash = (props) => {
   React.useEffect(() => {
     setTimeout(() => {

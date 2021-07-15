@@ -8,15 +8,13 @@ const Copy = ({ line }) => {
   };
 
   return (
-      <TouchableOpacity
-        style={[styles.copyContainer]}
-        onPress={() => copyToClipboard(line)}
-      >
-        <Image style={styles.image} source={require("../assets/copy-icon.png")} />
-        <Text style={styles.copyText}>
-          Copy!
-        </Text>
-      </TouchableOpacity>
+    <TouchableOpacity
+      style={[styles.copyContainer]}
+      onPress={() => copyToClipboard(line)}
+    >
+      <Image style={styles.image} source={require("../assets/copy-icon.png")} />
+      <Text style={styles.copyText}>Copy!</Text>
+    </TouchableOpacity>
   );
 };
 const styles = {
@@ -28,18 +26,18 @@ const styles = {
     alignItems: "center",
     height: 30,
     alignSelf: "center",
-    flexDirection:'row',
+    flexDirection: "row",
     paddingHorizontal: 5
   },
-  image:{
-    height:15,
-    width:15,
-    marginRight:4
+  image: {
+    height: 15,
+    width: 15,
+    marginRight: 4
   },
-  copyText:{
+  copyText: {
     color: "#000",
     textAlign: "center",
-    fontSize: wp(3.5),
+    fontSize: wp(3.5)
   }
 };
 export default Copy;

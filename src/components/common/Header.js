@@ -15,7 +15,10 @@ const Header = ({ text, type }) => {
       {type == "text" ? (
         <Text style={styles.text}>{text}</Text>
       ) : (
-        <Image style={styles.image} source={require("../../assets/text-logo.png")} />
+        <Image
+          style={styles.image}
+          source={require("../../assets/text-logo.png")}
+        />
       )}
     </View>
   );
@@ -31,11 +34,11 @@ const styles = {
   },
   text: {
     fontSize: wp(4.5),
-    fontWeight: 'bold'
+    fontWeight: "bold"
   },
   image: {
     height: 35,
-    resizeMode:'contain'
+    resizeMode: "contain"
   }
 };
 

@@ -8,7 +8,6 @@ import Splash from "../screens/Splash";
 import Dashboard from "../screens/Dashboard";
 import SavedLines from "../screens/SavedLines";
 import PayWall from "../screens/PayWall";
-import {wp} from '../utils/responsive'
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,14 +36,17 @@ const BottomTab = () => {
       tabBarOptions={{
         activeTintColor: "#FF6F87",
         inActiveTiniColor: "grey",
-         style: { backgroundColor: '#fff' },
+        style: { backgroundColor: "#fff" }
       }}
     >
       <Tab.Screen
         options={{
           tabBarLabel: "Discover",
           tabBarIcon: ({ color, size }) => (
-            <Image style={[styles.icon, {tintColor: color}]} source={require("../assets/discover.png")} />
+            <Image
+              style={[styles.icon, { tintColor: color }]}
+              source={require("../assets/discover.png")}
+            />
           )
         }}
         name="DashboardStack"
@@ -54,7 +56,10 @@ const BottomTab = () => {
         options={{
           tabBarLabel: "Saved Lines",
           tabBarIcon: ({ color, size }) => (
-            <Image style={[styles.icon, {tintColor:color}]} source={require("../assets/savedLinesIcon.png")} />
+            <Image
+              style={[styles.icon, { tintColor: color }]}
+              source={require("../assets/savedLinesIcon.png")}
+            />
           )
         }}
         name="SavedLines"
@@ -67,7 +72,7 @@ const BottomTab = () => {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator initialRouteName="BottomTab">
         <Stack.Screen
           options={{ headerShown: false }}
           name="Splash"
@@ -87,7 +92,7 @@ const styles = {
   icon: {
     height: 25,
     width: 25,
-    tintColor:'grey'
+    tintColor: "grey"
   }
 };
 export default Navigation;

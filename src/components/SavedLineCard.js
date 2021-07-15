@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import Copy from '../components/copy';
+import Copy from "../components/copy";
 import { wp } from "../utils/responsive";
 
 const SavedLineCard = ({ line }) => {
@@ -11,7 +11,7 @@ const SavedLineCard = ({ line }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{line}</Text>
-      <Copy line={line}/>  
+      <Copy line={line} />
     </View>
   );
 };
@@ -24,7 +24,7 @@ const styles = {
     flexDirection: "row",
     marginVertical: 5,
     justifyContent: "space-between",
-    flexDirection:'row'
+    flexDirection: "row"
   },
   text: {
     color: "white",
@@ -32,6 +32,6 @@ const styles = {
     fontWeight: "bold",
     width: "78%",
     lineHeight: 20
-  },
+  }
 };
 export default SavedLineCard;

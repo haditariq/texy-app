@@ -9,20 +9,22 @@ import {
 import Header from "../components/common/Header";
 import { MAX_SWIPES, STORAGE_KEY } from "../config/values";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useSelector, useDispatch } from 'react-redux'
-import {incrementSwipeCount} from '../state/swipeCounter'
-import {addPickupLine} from '../state/pickupLines';
-import Copy from '../components/copy'
-import pickupLinesDataSet from '../data/pickuplinesData.json';
-import {wp} from '../utils/responsive'
+import { useSelector, useDispatch } from "react-redux";
+import Swiper from "react-native-deck-swiper";
+import { incrementSwipeCount } from "../state/swipeCounter";
+import { addPickupLine } from "../state/pickupLines";
+import Copy from "../components/copy";
+import pickupLinesDataSet from "../data/pickuplinesData.json";
+import SwipeCard from "../components/SwipeCard";
+import { wp } from "../utils/responsive";
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.SwipeCounter.count);
-  const [randomNumber, setRandomNumber] = useState(1);
+  const [randomNumber, setRandomNumber] = useState(0);
 
-  useEffect(()=>{ 
-      checkSwipeLimit();
+  useEffect(() => {
+    checkSwipeLimit();
   }, []);
 
   const onSwipe = () => {
@@ -31,36 +33,52 @@ const Dashboard = (props) => {
     checkSwipeLimit();
   };
 
-  const giveRandomNumber = ()=>{
-   setRandomNumber(Math.floor(Math.random() * pickupLinesDataSet.length));
-  }
+  const giveRandomNumber = () => {
+    //  setRandomNumber(Math.floor(Math.random() * pickupLinesDataSet.length));
+    setRandomNumber(randomNumber + 1);
+  };
 
-  const checkSwipeLimit = ()=>{
-    if(MAX_SWIPES <= parseInt(count)) props.navigation.navigate("PayWall")
-  }
+  const checkSwipeLimit = () => {
+    if (MAX_SWIPES <= parseInt(count)) props.navigation.navigate("PayWall");
+  };
   const rightSaveSwipe = () => {
     onSwipe();
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   };
-
-  // return <View/>;
-
 
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <View style={styles.content}>
         <View style={styles.swipeContainer}>
-          <Text>Already Swiped: {count}</Text>
-          <Text>Total Swipes Available: {MAX_SWIPES}</Text>
-          <Text style={{color:'#fff', width: '70%', textAlign:'center', marginTop: 20}}>
-            {pickupLinesDataSet[randomNumber].Topic}
-          </Text>
-          <Text style={{color:'#fff', width: '70%', textAlign:'center', margin: 5}}>
-            {pickupLinesDataSet[randomNumber].Question}
-          </Text>
-        <Copy/>
+          <Swiper
+            cards={pickupLinesDataSet}
+            renderCard={(card) => (
+              <SwipeCard
+                card={card}
+                MAX_SWIPES={MAX_SWIPES}
+                totalPickups={pickupLinesDataSet.length}
+                count={count}
+              />
+            )}
+            onSwiped={(cardIndex) => {
+              onSwipe();
+              console.log(cardIndex);
+            }}
+            onSwipedRight={() => rightSaveSwipe()}
+            onSwipedAll={() => {
+              console.log("onSwipedAll");
+            }}
+            cardIndex={0}
+            backgroundColor={"#4FD0E9"}
+            stackSize={3}
+            disableTopSwipe={true}
+            disableBottomSwipe={true}
+          >
+            <Text>content</Text>
+          </Swiper>
         </View>
+
         <View style={styles.swipeButtonContainer}>
           <TouchableOpacity onPress={onSwipe}>
             <Image

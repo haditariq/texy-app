@@ -6,13 +6,15 @@ export const PickupLinesSlice = createSlice({
     pickupLines: []
   },
   reducers: {
-    addPickupLine: (state, action)=>{
+    addPickupLine: (state, action) => {
       state.pickupLines = [...state.pickupLines, action.payload];
     },
     removePickLine: (state, action) => {
-      state.pickupLines = state.pickupLines.filter((item, idx)=> idx != action.payload);
+      state.pickupLines = state.pickupLines.filter(
+        (item, idx) => idx != action.payload
+      );
     }
-  },
+  }
 });
 
 export const { addPickupLine, removePickLine } = PickupLinesSlice.actions;
