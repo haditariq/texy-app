@@ -41,7 +41,8 @@ const Dashboard = (props) => {
   const checkSwipeLimit = () => {
     if (MAX_SWIPES <= parseInt(count)) props.navigation.navigate("PayWall");
   };
-  const rightSaveSwipe = () => {
+
+  const onRightSaveSwipe = () => {
     onSwipe();
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   };
@@ -53,23 +54,25 @@ const Dashboard = (props) => {
         <View style={styles.swipeContainer}>
           <Swiper
             cards={pickupLinesDataSet}
-            renderCard={(card) => (
+            renderCard={(card, index) => (
               <SwipeCard
                 card={card}
                 MAX_SWIPES={MAX_SWIPES}
                 totalPickups={pickupLinesDataSet.length}
                 count={count}
+                idx={index}
               />
             )}
             onSwiped={(cardIndex) => {
               onSwipe();
               console.log(cardIndex);
             }}
-            onSwipedRight={() => rightSaveSwipe()}
+            onSwipedRight={() => onRightSaveSwipe()}
             onSwipedAll={() => {
               console.log("onSwipedAll");
             }}
             cardIndex={0}
+            childrenOnTop={true}
             backgroundColor={"transparent"}
             stackSize={3}
             disableTopSwipe={true}
@@ -84,7 +87,7 @@ const Dashboard = (props) => {
               source={require("../assets/cross.png")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={rightSaveSwipe}>
+          <TouchableOpacity onPress={onRightSaveSwipe}>
             <Image
               style={styles.image}
               source={require("../assets/star.png")}
@@ -109,7 +112,7 @@ const styles = {
   swipeContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   swipeButtonContainer: {
     flexDirection: "row",
@@ -121,7 +124,7 @@ const styles = {
     height: wp(20),
     width: wp(20),
     resizeMode: "contain",
-    marginHorizontal: 10
+    marginHorizontal: 20
   }
 };
 
