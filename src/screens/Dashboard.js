@@ -92,7 +92,7 @@ const Dashboard = (props) => {
             onSwipedAll={() => setOnSwipedAll(true)}
             cardIndex={0}
             // childrenOnTop={true}
-            // backgroundColor={"transparent"}
+            backgroundColor={"transparent"}
             stackSize={3}
             disableTopSwipe={true}
             disableBottomSwipe={true}
