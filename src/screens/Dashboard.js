@@ -91,8 +91,8 @@ const Dashboard = (props) => {
             onSwipedRight={savePickupLine}
             onSwipedAll={() => setOnSwipedAll(true)}
             cardIndex={0}
-            childrenOnTop={true}
-            backgroundColor={"transparent"}
+            // childrenOnTop={true}
+            // backgroundColor={"transparent"}
             stackSize={3}
             disableTopSwipe={true}
             disableBottomSwipe={true}
@@ -131,13 +131,15 @@ const styles = {
   swipeContainer: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: -20,
   },
   swipeButtonContainer: {
+    flex: .10,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    padding: 20
+    padding: 20,
   },
   image: {
     height: wp(20),

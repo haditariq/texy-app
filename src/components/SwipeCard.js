@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Dimensions } from "react-native";
 import Copy from "./copy";
-import { wp } from "../utils/responsive";
+import { wp, hp } from "../utils/responsive";
 const { width } = Dimensions.get("window");
 
 const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
@@ -20,7 +20,6 @@ const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
       <View style={styles.pickupContainer}>
         <Text style={styles.pickupText}>{card.Question}</Text>
       </View>
-
       <Copy />
     </View>
   );
@@ -28,7 +27,7 @@ const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
 
 const styles = {
   container: {
-    height: wp(110),
+    height: hp(55),
     width: width - wp(14),
     backgroundColor: "#FF6F87",
     borderRadius: 15,

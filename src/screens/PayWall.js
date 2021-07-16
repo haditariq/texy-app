@@ -29,7 +29,7 @@ const PayWall = () => {
           <Text style={[styles.text, { marginTop: 20 }]}>
             One payment. Forever.
           </Text>
-          <Text style={[styles.text, { marginTop: 20, fontSize: wp(4.3), fontFamily:'Khula-ExtraBold' }]}>
+          <Text style={[styles.text, { marginTop: 20, fontSize: wp(4.3), fontFamily:'Khula-ExtraBold',  }]}>
             Only 289 CZK
           </Text>
         </View>
@@ -58,7 +58,7 @@ const styles = {
     padding: 20,
     width: width - 15,
     marginTop: 40,
-    paddingBottom: 0
+    paddingBottom: 0,
   },
   bgContainer: {
     flex: 1,
@@ -67,7 +67,7 @@ const styles = {
     paddingTop: width * 0.5,
     position: "relative",
     borderRadius: 20,
-    alignSelf: "flex-end"
+    // alignSelf: "flex-end"
   },
   bg: {
     width: width - p * 2,
@@ -85,10 +85,10 @@ const styles = {
     // lineHeight:30
   },
   continueButtonContainer: {
-    // flex:1,
+    flex:.25,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: wp(10)
+    marginVertical: 20
   },
   continueButton: {
     backgroundColor: "#FF6F87",

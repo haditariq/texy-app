@@ -51,7 +51,8 @@ const styles = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    padding: 20
+    padding: 20,
+    flex:.25
   },
   image: {
     height: wp(20),
@@ -72,7 +73,7 @@ const styles = {
     flex: 1,
     backgroundColor: "#FFF5F7",
     padding: wp(11),
-    paddingTop: width * 0.5,
+    paddingTop: wp(50),
     // position: "relative",
     borderRadius: 20,
     // alignSelf: "flex-end"
