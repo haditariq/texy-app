@@ -73,7 +73,8 @@ const Dashboard = (props) => {
         <View style={styles.swipeContainer}>
           <Swiper
             ref={swiperRef}
-            cards={pickupLinesDataSet.slice(0,20)}
+            // cards={pickupLinesDataSet.slice(0,20)}
+            cards={pickupLinesDataSet}
             renderCard={(card, index) => (
               <SwipeCard
                 card={card}
