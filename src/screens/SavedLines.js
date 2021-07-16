@@ -13,7 +13,6 @@ import Header from "../components/common/Header";
 
 const SavedLines = () => {
   let pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
-  let datas = pickupLinesData;
   const onRemoveSavedLine = (line) => {};
 
   return (
@@ -22,7 +21,7 @@ const SavedLines = () => {
       <View style={styles.content}>
         {pickupLinesData.length > 0 ? (
           <SwipeListView
-            data={datas}
+            data={[...pickupLinesData].reverse()}
             renderItem={(data, rowMap) => (
               <SavedLineCard line={data.item.Question} />
             )}

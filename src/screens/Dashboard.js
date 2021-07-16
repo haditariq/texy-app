@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   SafeAreaView,
   View,
@@ -17,10 +17,12 @@ import Copy from "../components/copy";
 import pickupLinesDataSet from "../data/pickuplinesData.json";
 import SwipeCard from "../components/SwipeCard";
 import { wp } from "../utils/responsive";
-import NoMorePickUps from '../screens/NoMorePickups'
+import NoMorePickUps from '../screens/NoMorePickups';
+
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
+  const swiperRef = useRef(null);
   const count = useSelector((state) => state.SwipeCounter.count);
   const [randomNumber, setRandomNumber] = useState(0);
 
@@ -35,7 +37,6 @@ const Dashboard = (props) => {
   };
 
   const giveRandomNumber = () => {
-    //  setRandomNumber(Math.floor(Math.random() * pickupLinesDataSet.length));
     setRandomNumber(randomNumber + 1);
   };
 
@@ -43,21 +44,29 @@ const Dashboard = (props) => {
     if (MAX_SWIPES <= parseInt(count)) props.navigation.navigate("PayWall");
   };
 
-  const onRightSaveSwipe = () => {
-    onSwipe();
+  const savePickupLine = () => {
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
-  };
-
-  if(true){
-    return <NoMorePickUps/>
   }
 
+  const onSwipeRight = () => {
+    swiperRef.current.swipeRight();
+  };
+
+  const onSwipeLeft = () => {
+    swiperRef.current.swipeLeft();
+  }
+
+  if(randomNumber === pickupLinesDataSet.length){
+    return <NoMorePickUps/>
+  }
+   
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <View style={styles.content}>
         <View style={styles.swipeContainer}>
           <Swiper
+            ref={swiperRef}
             cards={pickupLinesDataSet}
             renderCard={(card, index) => (
               <SwipeCard
@@ -68,11 +77,8 @@ const Dashboard = (props) => {
                 idx={index}
               />
             )}
-            onSwiped={(cardIndex) => {
-              onSwipe();
-              console.log(cardIndex);
-            }}
-            onSwipedRight={() => onRightSaveSwipe()}
+            onSwiped={onSwipe}
+            onSwipedRight={savePickupLine}
             onSwipedAll={() => {
               console.log("onSwipedAll");
             }}
@@ -86,13 +92,13 @@ const Dashboard = (props) => {
         </View>
 
         <View style={styles.swipeButtonContainer}>
-          <TouchableOpacity onPress={onSwipe}>
+          <TouchableOpacity onPress={onSwipeLeft}>
             <Image
               style={styles.image}
               source={require("../assets/cross.png")}
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={onRightSaveSwipe}>
+          <TouchableOpacity onPress={onSwipeRight}>
             <Image
               style={styles.image}
               source={require("../assets/star.png")}
