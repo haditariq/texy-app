@@ -72,7 +72,7 @@ const BottomTab = () => {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator initialRouteName="BottomTab">
         <Stack.Screen
           options={{ headerShown: false }}
           name="Splash"

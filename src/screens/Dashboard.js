@@ -26,7 +26,8 @@ const Dashboard = (props) => {
   const swiperRef = useRef(null);
   const count = useSelector((state) => state.SwipeCounter.count);
   const [randomNumber, setRandomNumber] = useState(0);
-  const [onSwipedAll, setOnSwipedAll] = useState(false)
+  const [onSwipedAll, setOnSwipedAll] = useState(false);
+
   useEffect(() => {
     checkSwipeLimit();
   }, []);
@@ -72,7 +73,7 @@ const Dashboard = (props) => {
         <View style={styles.swipeContainer}>
           <Swiper
             ref={swiperRef}
-            cards={pickupLinesDataSet}
+            cards={pickupLinesDataSet.slice(0,20)}
             renderCard={(card, index) => (
               <SwipeCard
                 card={card}

@@ -5,7 +5,6 @@ import { wp } from "../utils/responsive";
 const { width } = Dimensions.get("window");
 
 const NoMorePickUps = () => {
-  console.warn(wp(5.1));
   return (
     <SafeAreaView style={styles.container}>
       <Header />
