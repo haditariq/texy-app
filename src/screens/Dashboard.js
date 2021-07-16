@@ -18,6 +18,7 @@ import pickupLinesDataSet from "../data/pickuplinesData.json";
 import SwipeCard from "../components/SwipeCard";
 import { wp } from "../utils/responsive";
 import NoMorePickUps from '../screens/NoMorePickups';
+import { StackActions } from '@react-navigation/native';
 
 
 const Dashboard = (props) => {
@@ -41,7 +42,11 @@ const Dashboard = (props) => {
   };
 
   const checkSwipeLimit = () => {
-    if (MAX_SWIPES <= parseInt(count)) props.navigation.navigate("PayWall");
+    if (MAX_SWIPES <= parseInt(count)){ 
+        props.navigation.dispatch(
+        StackActions.replace('PayWall')
+      );
+    }
   };
 
   const savePickupLine = () => {

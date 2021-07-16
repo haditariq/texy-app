@@ -2,10 +2,14 @@ import React from "react";
 import { View, ImageBackground, Text, StyleSheet, Image } from "react-native";
 import bgImage from "../assets/happy-youngster-bg.png";
 import { wp } from "../utils/responsive.js";
+import { StackActions } from '@react-navigation/native';
+
 const Splash = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
-      props.navigation.navigate("BottomTab");
+      props.navigation.dispatch(
+        StackActions.replace('BottomTab')
+      );
     }, 5000);
   });
 
@@ -56,14 +60,12 @@ const styles = {
   logoText: {
     fontSize: wp(6),
     color: "#fff",
-    fontWeight: "bold",
     marginLeft: 10
   },
   splashText: {
     color: "#fff",
     fontSize: wp(4.8),
     textAlign: "center",
-    fontWeight: "bold",
     marginTop: 15,
     fontFamily: 'Khula-bold',
     lineHeight: 28
