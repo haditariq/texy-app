@@ -10,10 +10,14 @@ import SavedLineCard from "../components/SavedLineCard";
 import { SwipeListView } from "react-native-swipe-list-view";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "../components/common/Header";
+import {removePickLine} from '../state/pickupLines';
 
 const SavedLines = () => {
-  let pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
-  const onRemoveSavedLine = (line) => {};
+  const dispatch = useDispatch();
+  const pickupLinesData = useSelector((state) => state.PickupLines.pickupLines);
+  const onRemoveSavedLine = (card) => {
+    dispatch(removePickLine(card.id))
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +29,7 @@ const SavedLines = () => {
             renderItem={(data, rowMap) => (
               <SavedLineCard line={data.item.Question} />
             )}
-            renderHiddenItem={(data, rowMap) => (
+            renderHiddenItem={(data, index) => (
               <View style={styles.rowBack}>
                 <TouchableOpacity onPress={() => onRemoveSavedLine(data.item)}>
                   <Image

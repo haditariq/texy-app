@@ -10,9 +10,10 @@ export const PickupLinesSlice = createSlice({
       state.pickupLines = [...state.pickupLines, action.payload];
     },
     removePickLine: (state, action) => {
+      console.warn(state.pickupLines)
       state.pickupLines = state.pickupLines.filter(
-        (item, idx) => idx != action.payload
-      );
+        (item, idx) => item.id != action.payload
+      )
     }
   }
 });

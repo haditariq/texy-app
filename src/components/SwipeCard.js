@@ -25,7 +25,6 @@ const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
     </View>
   );
 };
-/* <Text style={styles.text}>Total pickups available: {totalPickups}</Text> */
 
 const styles = {
   container: {
@@ -35,7 +34,6 @@ const styles = {
     borderRadius: 15,
     justifyContent: "center",
     paddingVertical: 15
-    // alignItems: "center"
   },
   topRow: {
     flexDirection: "row",

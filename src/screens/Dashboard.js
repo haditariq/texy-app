@@ -51,6 +51,9 @@ const Dashboard = (props) => {
   };
 
   const savePickupLine = () => {
+    let unique_id = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(2, 10);
+    console.warn({unique_id})
+    pickupLinesDataSet[randomNumber].id = unique_id;
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   }
 
