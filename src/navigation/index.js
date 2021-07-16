@@ -36,7 +36,7 @@ const BottomTab = () => {
       tabBarOptions={{
         activeTintColor: "#FF6F87",
         inActiveTiniColor: "grey",
-        style: { backgroundColor: "#fff" }
+        style: { backgroundColor: "#fff", fontFamily: "Khula-Bold" }
       }}
     >
       <Tab.Screen
@@ -72,7 +72,7 @@ const BottomTab = () => {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="BottomTab">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           options={{ headerShown: false }}
           name="Splash"

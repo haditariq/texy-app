@@ -34,7 +34,7 @@ const styles = {
   },
   text: {
     fontSize: wp(4.5),
-    fontWeight: "bold"
+    fontFamily: 'Khula-Bold'
   },
   image: {
     height: 35,

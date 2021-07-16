@@ -37,7 +37,9 @@ const styles = {
   copyText: {
     color: "#000",
     textAlign: "center",
-    fontSize: wp(3.5)
+    fontSize: wp(3.08),
+    fontFamily: "Khula-Bold",
+    marginTop: 3
   }
 };
 export default Copy;

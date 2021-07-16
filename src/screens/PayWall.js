@@ -29,7 +29,7 @@ const PayWall = () => {
           <Text style={[styles.text, { marginTop: 20 }]}>
             One payment. Forever.
           </Text>
-          <Text style={[styles.text, { marginTop: 20, fontSize: wp(4.5) }]}>
+          <Text style={[styles.text, { marginTop: 20, fontSize: wp(4.3), fontFamily:'Khula-ExtraBold' }]}>
             Only 289 CZK
           </Text>
         </View>
@@ -45,7 +45,6 @@ const PayWall = () => {
     </SafeAreaView>
   );
 };
-
 const p = 15;
 const styles = {
   container: {
@@ -80,9 +79,9 @@ const styles = {
   },
   text: {
     color: "#000",
-    fontSize: wp(4.5),
-    fontWeight: "bold",
-    textAlign: "center"
+    fontSize: wp(3.8),
+    textAlign: "center",
+    fontFamily:'Khula-Bold'
     // lineHeight:30
   },
   continueButtonContainer: {

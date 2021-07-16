@@ -25,7 +25,7 @@ const Dashboard = (props) => {
   const swiperRef = useRef(null);
   const count = useSelector((state) => state.SwipeCounter.count);
   const [randomNumber, setRandomNumber] = useState(0);
-
+  const [onSwipedAll, setOnSwipedAll] = useState(false)
   useEffect(() => {
     checkSwipeLimit();
   }, []);
@@ -56,7 +56,7 @@ const Dashboard = (props) => {
     swiperRef.current.swipeLeft();
   }
 
-  if(randomNumber === pickupLinesDataSet.length){
+  if(onSwipedAll){
     return <NoMorePickUps/>
   }
    
@@ -79,9 +79,7 @@ const Dashboard = (props) => {
             )}
             onSwiped={onSwipe}
             onSwipedRight={savePickupLine}
-            onSwipedAll={() => {
-              console.log("onSwipedAll");
-            }}
+            onSwipedAll={() => setOnSwipedAll(true)}
             cardIndex={0}
             childrenOnTop={true}
             backgroundColor={"transparent"}

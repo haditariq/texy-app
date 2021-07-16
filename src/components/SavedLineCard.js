@@ -29,9 +29,9 @@ const styles = {
   text: {
     color: "white",
     fontSize: wp(3.5),
-    fontWeight: "bold",
     width: "78%",
-    lineHeight: 20
+    lineHeight: 20,
+    fontFamily: "Khula-ExtraBold"
   }
 };
 export default SavedLineCard;

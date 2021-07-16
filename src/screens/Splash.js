@@ -61,10 +61,12 @@ const styles = {
   },
   splashText: {
     color: "#fff",
-    fontSize: wp(4),
+    fontSize: wp(4.8),
     textAlign: "center",
     fontWeight: "bold",
-    marginTop: 15
+    marginTop: 15,
+    fontFamily: 'Khula-bold',
+    lineHeight: 28
   }
 };
 

@@ -8,11 +8,11 @@ const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
   return (
     <View style={[styles.container, { opacity: 1}]}>
       <View style={styles.topRow}>
-        <Text style={[styles.pickupText, { fontSize: wp(3.5) }]}>
+        <Text style={[styles.pickupText, { fontSize: wp(3.08) }]}>
           {count}/{MAX_SWIPES}
         </Text>
         <View style={styles.complimentBG}>
-          <Text style={[styles.pickupText, { fontSize: wp(3.5) }]}>
+          <Text style={[styles.pickupText, { fontSize: wp(3.08) }]}>
             {card.Topic}
           </Text>
         </View>
@@ -60,11 +60,11 @@ const styles = {
     paddingHorizontal: 25
   },
   pickupText: {
-    fontSize: wp(6),
-    fontWeight: "bold",
+    fontSize: wp(5.65),
     color: "#fff",
     textAlign: "center",
-    lineHeight: 30
+    lineHeight: 30,
+    fontFamily: 'Khula-Bold'
   }
 };
 
