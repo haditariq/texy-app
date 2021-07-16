@@ -15,6 +15,11 @@
 		2AA40C0E269F6DBC00CF7FC3 /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AA40C0D269F6DBC00CF7FC3 /* AppCenter-Config.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		CCC50F43439CE60AE99252A1 /* libPods-texy-texyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98048D9E30B12700F701BA07 /* libPods-texy-texyTests.a */; };
+		1F7BC74B01F8435891B3C30F /* Khula-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEDAAC1295A14210A2ECB4B9 /* Khula-Bold.ttf */; };
+		7436A0F5F5074045AAD3D04D /* Khula-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BA93EE6D1BD4AD2B6C942A9 /* Khula-ExtraBold.ttf */; };
+		07E46A4BD85F4B448585424D /* Khula-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5AD939E4159465AB22AA824 /* Khula-Light.ttf */; };
+		F0123EC91F314EED8D02485E /* Khula-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D04487F5B4C4B4FBF9F559D /* Khula-Regular.ttf */; };
+		E706CD8B82A44F178A098E14 /* Khula-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C6189681D8044F096C1C4CC /* Khula-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F3875ABB7FF4F56FAE683CC8 /* Pods-texy-texyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-texy-texyTests.debug.xcconfig"; path = "Target Support Files/Pods-texy-texyTests/Pods-texy-texyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC3AD86CC0B70CCCEDADF3EC /* Pods-texy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-texy.release.xcconfig"; path = "Target Support Files/Pods-texy/Pods-texy.release.xcconfig"; sourceTree = "<group>"; };
+		EEDAAC1295A14210A2ECB4B9 /* Khula-Bold.ttf */ = {isa = PBXFileReference; name = "Khula-Bold.ttf"; path = "../src/assets/fonts/Khula/Khula-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2BA93EE6D1BD4AD2B6C942A9 /* Khula-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Khula-ExtraBold.ttf"; path = "../src/assets/fonts/Khula/Khula-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D5AD939E4159465AB22AA824 /* Khula-Light.ttf */ = {isa = PBXFileReference; name = "Khula-Light.ttf"; path = "../src/assets/fonts/Khula/Khula-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2D04487F5B4C4B4FBF9F559D /* Khula-Regular.ttf */ = {isa = PBXFileReference; name = "Khula-Regular.ttf"; path = "../src/assets/fonts/Khula/Khula-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1C6189681D8044F096C1C4CC /* Khula-SemiBold.ttf */ = {isa = PBXFileReference; name = "Khula-SemiBold.ttf"; path = "../src/assets/fonts/Khula/Khula-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BECF251A38FDB7A7EDADD71A /* Pods */,
+				1E36B542D266451D8F959105 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -150,6 +161,19 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		1E36B542D266451D8F959105 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				EEDAAC1295A14210A2ECB4B9 /* Khula-Bold.ttf */,
+				2BA93EE6D1BD4AD2B6C942A9 /* Khula-ExtraBold.ttf */,
+				D5AD939E4159465AB22AA824 /* Khula-Light.ttf */,
+				2D04487F5B4C4B4FBF9F559D /* Khula-Regular.ttf */,
+				1C6189681D8044F096C1C4CC /* Khula-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -246,6 +270,11 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2AA40C0E269F6DBC00CF7FC3 /* AppCenter-Config.plist in Resources */,
+				1F7BC74B01F8435891B3C30F /* Khula-Bold.ttf in Resources */,
+				7436A0F5F5074045AAD3D04D /* Khula-ExtraBold.ttf in Resources */,
+				07E46A4BD85F4B448585424D /* Khula-Light.ttf in Resources */,
+				F0123EC91F314EED8D02485E /* Khula-Regular.ttf in Resources */,
+				E706CD8B82A44F178A098E14 /* Khula-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

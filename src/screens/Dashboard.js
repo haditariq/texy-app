@@ -17,6 +17,7 @@ import Copy from "../components/copy";
 import pickupLinesDataSet from "../data/pickuplinesData.json";
 import SwipeCard from "../components/SwipeCard";
 import { wp } from "../utils/responsive";
+import NoMorePickUps from '../screens/NoMorePickups'
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
@@ -46,6 +47,10 @@ const Dashboard = (props) => {
     onSwipe();
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   };
+
+  if(true){
+    return <NoMorePickUps/>
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -124,7 +129,7 @@ const styles = {
     height: wp(20),
     width: wp(20),
     resizeMode: "contain",
-    marginHorizontal: 20
+    marginHorizontal: 20,
   }
 };
 
