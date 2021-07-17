@@ -70,7 +70,7 @@ const styles = {
     backgroundColor: "#fff"
   },
   content: {
-    padding: 20,
+    paddingHorizontal: 20,
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
