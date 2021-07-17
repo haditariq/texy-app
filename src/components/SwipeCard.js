@@ -4,24 +4,25 @@ import Copy from "./copy";
 import { wp, hp } from "../utils/responsive";
 const { width } = Dimensions.get("window");
 
+
 const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
   return (
-    <View style={[styles.container, { opacity: 1 }]}>
-      <View style={styles.topRow}>
-        <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
-          {count}/{MAX_SWIPES} Free
-        </Text>
-        <View style={styles.complimentBG}>
+      <View style={[styles.container, { opacity: 1 }]}>
+        <View style={styles.topRow}>
           <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
-            {card.Topic}
+            {count}/{MAX_SWIPES} Free
           </Text>
+          <View style={styles.complimentBG}>
+            <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
+              {card.Topic}
+            </Text>
+          </View>
         </View>
+        <View style={styles.pickupContainer}>
+          <Text style={styles.pickupText}>{card.Question}</Text>
+        </View>
+        <Copy />
       </View>
-      <View style={styles.pickupContainer}>
-        <Text style={styles.pickupText}>{card.Question}</Text>
-      </View>
-      <Copy />
-    </View>
   );
 };
 

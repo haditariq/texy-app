@@ -4,7 +4,8 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions
 } from "react-native";
 import Header from "../components/common/Header";
 import { MAX_SWIPES, STORAGE_KEY } from "../config/values";
@@ -16,10 +17,10 @@ import { addPickupLine } from "../state/pickupLines";
 import Copy from "../components/copy";
 import pickupLinesDataSet from "../data/pickuplinesData.json";
 import SwipeCard from "../components/SwipeCard";
-import { wp } from "../utils/responsive";
+import { wp, hp } from "../utils/responsive";
 import NoMorePickUps from '../screens/NoMorePickups';
 import { StackActions } from '@react-navigation/native';
-
+const { width } = Dimensions.get("window");
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
@@ -74,29 +75,28 @@ const Dashboard = (props) => {
       <Header />
       <View style={styles.content}>
         <View style={styles.swipeContainer}>
-          <Swiper
-            ref={swiperRef}
-            // cards={pickupLinesDataSet.slice(0,20)}
-            cards={pickupLinesDataSet}
-            renderCard={(card, index) => (
-              <SwipeCard
-                card={card}
-                MAX_SWIPES={MAX_SWIPES}
-                totalPickups={pickupLinesDataSet.length}
-                count={count}
-                idx={index}
-              />
-            )}
-            onSwiped={onSwipe}
-            onSwipedRight={savePickupLine}
-            onSwipedAll={() => setOnSwipedAll(true)}
-            cardIndex={0}
-            // childrenOnTop={true}
-            backgroundColor={"transparent"}
-            stackSize={3}
-            disableTopSwipe={true}
-            disableBottomSwipe={true}
-          />
+            <Swiper
+              ref={swiperRef}
+              // cards={pickupLinesDataSet.slice(0,20)}
+              cards={pickupLinesDataSet}
+              renderCard={(card, index) => (
+                <SwipeCard
+                  card={card}
+                  MAX_SWIPES={MAX_SWIPES}
+                  totalPickups={pickupLinesDataSet.length}
+                  count={count}
+                  idx={index}
+                />
+              )}
+              onSwiped={onSwipe}
+              onSwipedRight={savePickupLine}
+              onSwipedAll={() => setOnSwipedAll(true)}
+              cardIndex={0}
+              backgroundColor={"transparent"}
+              stackSize={3}
+              disableTopSwipe={true}
+              disableBottomSwipe={true}
+            />
         </View>
 
         <View style={styles.swipeButtonContainer}>
@@ -133,6 +133,16 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     marginTop: -20,
+ shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 4,
+},
+shadowOpacity: 0.32,
+shadowRadius: 5.46,
+
+elevation: 9,
+
   },
   swipeButtonContainer: {
     flex: .10,
