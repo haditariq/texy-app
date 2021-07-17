@@ -6,13 +6,13 @@ const { width } = Dimensions.get("window");
 
 const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
   return (
-    <View style={[styles.container, { opacity: 1}]}>
+    <View style={[styles.container, { opacity: 1 }]}>
       <View style={styles.topRow}>
-        <Text style={[styles.pickupText, { fontSize: wp(3.08) }]}>
-          {count}/{MAX_SWIPES}
+        <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
+          {count}/{MAX_SWIPES} Free
         </Text>
         <View style={styles.complimentBG}>
-          <Text style={[styles.pickupText, { fontSize: wp(3.08) }]}>
+          <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
             {card.Topic}
           </Text>
         </View>
@@ -37,7 +37,8 @@ const styles = {
   topRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 20
+    padding: 20,
+    paddingTop: 5
   },
   complimentBG: {
     paddingHorizontal: 8,
@@ -61,7 +62,7 @@ const styles = {
     color: "#fff",
     textAlign: "center",
     lineHeight: 30,
-    fontFamily: 'Khula-Bold'
+    fontFamily: "Khula-Bold"
   }
 };
 

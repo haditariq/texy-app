@@ -13,12 +13,19 @@ const Header = ({ text, type }) => {
       ]}
     >
       {type == "text" ? (
-        <Text style={styles.text}>{text}</Text>
+        <Text style={[{ fontSize: wp(4.5), fontFamily: "Khula-bold" }]}>
+          {text}
+        </Text>
       ) : (
-        <Image
-          style={styles.image}
-          source={require("../../assets/text-logo.png")}
-        />
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.image}
+            source={require("../../assets/circle-heart.png")}
+          />
+          <Text style={[styles.text, { fontFamily: "SF Pro Rounded" }]}>
+            Texy
+          </Text>
+        </View>
       )}
     </View>
   );
@@ -32,13 +39,19 @@ const styles = {
     paddingVertical: 13,
     borderBottomWidth: 1
   },
+  logoContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
   text: {
-    fontSize: wp(4.5),
-    fontFamily: 'Khula-Bold'
+    fontSize: wp(6)
   },
   image: {
-    height: 35,
-    resizeMode: "contain"
+    height: 45,
+    width: 45,
+    resizeMode: "contain",
+    marginRight: 5
   }
 };
 

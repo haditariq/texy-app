@@ -37,6 +37,16 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Khula-Bold.ttf</string>
+		<string>Khula-ExtraBold.ttf</string>
+		<string>Khula-Light.ttf</string>
+		<string>Khula-Regular.ttf</string>
+		<string>Khula-SemiBold.ttf</string>
+		<string>FontsFree-Net-SF-Pro-Rounded-Heavy.ttf</string>
+		<string>SF-Pro-Rounded.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,13 +61,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Khula-Bold.ttf</string>
-		<string>Khula-ExtraBold.ttf</string>
-		<string>Khula-Light.ttf</string>
-		<string>Khula-Regular.ttf</string>
-		<string>Khula-SemiBold.ttf</string>
-	</array>
 </dict>
 </plist>

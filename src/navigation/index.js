@@ -35,13 +35,24 @@ const BottomTab = () => {
       initialRouteName="DashboardStack"
       tabBarOptions={{
         activeTintColor: "#FF6F87",
-        inActiveTiniColor: "grey",
-        style: { backgroundColor: "#fff", fontFamily: "Khula-Bold" }
+        inActiveTintColor: "grey",
+        style: { backgroundColor: "#fff", paddingVertical: 3 }
       }}
     >
       <Tab.Screen
         options={{
-          tabBarLabel: "Discover",
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                fontFamily: focused ? "Khula-ExtraBold" : "Khula-Bold",
+                color,
+                fontSize: 13
+              }}
+            >
+              Discover
+            </Text>
+          ),
+
           tabBarIcon: ({ color, size }) => (
             <Image
               style={[styles.icon, { tintColor: color }]}
@@ -54,7 +65,17 @@ const BottomTab = () => {
       />
       <Tab.Screen
         options={{
-          tabBarLabel: "Saved Lines",
+          tabBarLabel: ({ focused, color }) => (
+            <Text
+              style={{
+                fontFamily: focused ? "Khula-ExtraBold" : "Khula-Bold",
+                color,
+                fontSize: 13
+              }}
+            >
+              Saved Lines
+            </Text>
+          ),
           tabBarIcon: ({ color, size }) => (
             <Image
               style={[styles.icon, { tintColor: color }]}
