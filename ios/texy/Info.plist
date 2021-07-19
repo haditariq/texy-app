@@ -46,6 +46,8 @@
 		<string>Khula-SemiBold.ttf</string>
 		<string>FontsFree-Net-SF-Pro-Rounded-Heavy.ttf</string>
 		<string>SF-Pro-Rounded.ttf</string>
+		<string>SF-Pro-Rounded-Heavy.ttf</string>
+		<string>SFRounded-Ultralight.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

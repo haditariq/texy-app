@@ -60,14 +60,15 @@ const styles = {
   logoText: {
     fontSize: wp(6),
     color: "#fff",
-    marginLeft: 10
+    marginLeft: 10,
+    fontFamily:'Khula-Bold'
   },
   splashText: {
     color: "#fff",
     fontSize: wp(4.8),
     textAlign: "center",
     marginTop: 15,
-    fontFamily: 'Khula-bold',
+    fontFamily: 'Khula-Bold',
     lineHeight: 28
   }
 };

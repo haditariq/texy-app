@@ -13,7 +13,7 @@ const Header = ({ text, type }) => {
       ]}
     >
       {type == "text" ? (
-        <Text style={[{ fontSize: wp(4.5), fontFamily: "Khula-bold" }]}>
+        <Text style={[{ fontSize: wp(4.5), fontFamily: "Khula-Bold" }]}>
           {text}
         </Text>
       ) : (
@@ -22,7 +22,7 @@ const Header = ({ text, type }) => {
             style={styles.image}
             source={require("../../assets/circle-heart.png")}
           />
-          <Text style={[styles.text, { fontFamily: "SF Pro Rounded" }]}>
+          <Text style={[styles.text, { fontFamily: "SFRounded-Ultralight" }]}>
             Texy
           </Text>
         </View>
