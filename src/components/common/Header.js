@@ -37,7 +37,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 13,
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   logoContainer: {
     flexDirection: "row",

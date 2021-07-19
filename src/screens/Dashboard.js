@@ -127,7 +127,9 @@ const styles = {
   content: {
     flex: 1,
     flexDirection: "column",
-    padding: 10
+    padding: 10,
+    elevation: 2
+
   },
   swipeContainer: {
     flex: 1,
