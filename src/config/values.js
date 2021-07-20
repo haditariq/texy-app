@@ -1,2 +1,2 @@
-export const MAX_SWIPES = 50;
+export const MAX_SWIPES = 10;
 export const STORAGE_KEY = "texySwiper";

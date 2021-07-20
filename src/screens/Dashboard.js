@@ -25,7 +25,7 @@ const { width } = Dimensions.get("window");
 const Dashboard = (props) => {
   const dispatch = useDispatch();
   const swiperRef = useRef(null);
-  const count = useSelector((state) => state.SwipeCounter.count);
+  const {count, isSubscribed} = useSelector((state) => state.SwipeCounter);
   const [randomNumber, setRandomNumber] = useState(0);
   const [onSwipedAll, setOnSwipedAll] = useState(false);
 
@@ -33,9 +33,11 @@ const Dashboard = (props) => {
     checkSwipeLimit();
   }, []);
 
-  const onSwipe = () => {
+  const onSwipe = async() => {
     dispatch(incrementSwipeCount());
-    checkSwipeLimit();
+    if(!isSubscribed){
+      checkSwipeLimit();
+    }
     giveRandomNumber();
   };
 
@@ -44,7 +46,7 @@ const Dashboard = (props) => {
   };
 
   const checkSwipeLimit = () => {
-    if (MAX_SWIPES <= parseInt(count)) {
+    if (!isSubscribed && MAX_SWIPES <= parseInt(count)) {
       props.navigation.dispatch(StackActions.replace("PayWall"));
     }
   };
@@ -87,6 +89,7 @@ const Dashboard = (props) => {
                 totalPickups={pickupLinesDataSet.length}
                 count={count}
                 idx={index}
+                isSubscribed={isSubscribed}
               />
             )}
             onSwiped={onSwipe}

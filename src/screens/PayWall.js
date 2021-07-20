@@ -9,10 +9,33 @@ import {
 } from "react-native";
 import Header from "../components/common/Header";
 import { wp } from "../utils/responsive";
-
+import Purchases from "react-native-purchases";
+import {useSelector, useDispatch} from 'react-redux';
+import { subscribe } from "../state/swipeCounter";
 const { width } = Dimensions.get("window");
 
-const PayWall = () => {
+
+const PayWall = (props) => {
+
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.SwipeCounter.count);
+
+  const purchaseSub = async () => {
+    dispatch(subscribe());
+    props.navigation.navigate("Dashboard")
+    return;
+    
+    try {
+      const offerings = await Purchases.getOfferings();
+      console.warn(offerings);
+      if (offerings.current !== null) {
+        // Display current offering with offerings.current
+      }
+    } catch (e) {
+      console.warn(e.message);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header />
@@ -36,7 +59,7 @@ const PayWall = () => {
         <View style={styles.continueButtonContainer}>
           <TouchableOpacity
             style={styles.continueButton}
-            onPress={() => alert("IAP coming soon.")}
+            onPress={purchaseSub}
           >
             <Text style={[styles.text, { color: "#fff" }]}>Continue</Text>
           </TouchableOpacity>
@@ -61,7 +84,7 @@ const styles = {
     paddingBottom: 0,
   },
   bgContainer: {
-    flex: 1,
+    flex: .7,
     backgroundColor: "#FFF5F7",
     padding: wp(11),
     paddingTop: width * 0.5,
@@ -88,13 +111,13 @@ const styles = {
     flex:.25,
     justifyContent: "center",
     alignItems: "center",
-    marginVertical: 20
+    marginVertical: 10
   },
   continueButton: {
     backgroundColor: "#FF6F87",
     borderRadius: 30,
     padding: 15,
-    width: width - 60
+    width: width - 60,
   }
 };
 export default PayWall;

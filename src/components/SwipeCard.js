@@ -4,13 +4,15 @@ import Copy from "./copy";
 import { wp, hp } from "../utils/responsive";
 const { width } = Dimensions.get("window");
 
-const SwipeCard = ({ card, totalPickups, count, idx, MAX_SWIPES }) => {
+const SwipeCard = ({ card, totalPickups, count, isSubscribed, idx, MAX_SWIPES }) => {
   return (
     <View style={[styles.container, { opacity: 1 }]}>
       <View style={styles.topRow}>
+        {!isSubscribed  ? 
         <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
           {count}/{MAX_SWIPES} Free
-        </Text>
+        </Text>: <View/>
+        }
         <View style={styles.complimentBG}>
           <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
             {card.Topic}

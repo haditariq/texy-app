@@ -1,19 +1,28 @@
 import React from "react";
+import { View } from "react-native";
 import Navigation from "./src/navigation";
 import { STORAGE_KEY } from "./src/config/values";
 import { useSelector, useDispatch } from "react-redux";
-import { initializeSwiperCount } from "./src/state/swipeCounter";
+import { initializeSwiperCount, subscribe } from "./src/state/swipeCounter";
+import Purchases from "react-native-purchases";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const App = () => {
-  const count = useSelector((state) => state.SwipeCounter.count);
-  const pick = useSelector((state) => state.PickupLines.PickupLines);
   const dispatch = useDispatch();
+  const {count, isSubscribed} = useSelector((state) => state.SwipeCounter);
+  const pick = useSelector((state) => state.PickupLines.PickupLines);
 
   React.useEffect(() => {
-    if (count == 0) {
+    Purchases.setDebugLogsEnabled(true);
+    Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF");
+
+    const isRestore = false;
+    if (isRestore) {
+      dispatch(subscribe())
+    } else if (!isSubscribed && count === 0) {
       dispatch(initializeSwiperCount());
-    } else if (count > 49) {
-      // restore IAP
+    }else{
+      console.warn("else")
     }
   }, []);
 
