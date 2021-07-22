@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.texy"
+        applicationId "com.michallangmajer.texy"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -152,6 +152,13 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            storeFile file('your_key_name.keystore')
+            storePassword 'password'
+            keyAlias 'your_key_alias'
+            keyPassword 'password'
+    }
     }
     buildTypes {
         debug {
@@ -163,6 +170,8 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
+
         }
     }
 

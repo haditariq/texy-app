@@ -21,6 +21,9 @@ const PayWall = (props) => {
   const count = useSelector((state) => state.SwipeCounter.count);
 
   const purchaseSub = async () => {
+    alert("IAP will appear here.")
+    return;
+    
     dispatch(subscribe());
     props.navigation.navigate("Dashboard")
     return;
