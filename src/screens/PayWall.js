@@ -10,24 +10,41 @@ import {
 import Header from "../components/common/Header";
 import { wp } from "../utils/responsive";
 import Purchases from "react-native-purchases";
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { subscribe } from "../state/swipeCounter";
 const { width } = Dimensions.get("window");
 
-
 const PayWall = (props) => {
-
   const dispatch = useDispatch();
   const count = useSelector((state) => state.SwipeCounter.count);
 
+  useEffect(() => {
+  }, [input])
+
+  const getProducts = async () => {
+    try {
+      const offerings = await Purchases.getOfferings();
+      console.warn(offerings.current.availablePackages);
+      if (
+        offerings.current !== null &&
+        offerings.current.availablePackages.length !== 0
+      ) {
+        // Display packages for sale
+      }
+    } catch (e) {
+      alert("No products available.")
+      return {}
+    }
+  };
+
   const purchaseSub = async () => {
-    alert("IAP will appear here.")
+    alert("IAP will appear here.");
     return;
-    
+
     dispatch(subscribe());
-    props.navigation.navigate("Dashboard")
+    props.navigation.navigate("Dashboard");
     return;
-    
+
     try {
       const offerings = await Purchases.getOfferings();
       console.warn(offerings);
@@ -55,15 +72,21 @@ const PayWall = (props) => {
           <Text style={[styles.text, { marginTop: 20 }]}>
             One payment. Forever.
           </Text>
-          <Text style={[styles.text, { marginTop: 20, fontSize: wp(4.3), fontFamily:'Khula-ExtraBold',  }]}>
+          <Text
+            style={[
+              styles.text,
+              {
+                marginTop: 20,
+                fontSize: wp(4.3),
+                fontFamily: "Khula-ExtraBold"
+              }
+            ]}
+          >
             Only 289 CZK
           </Text>
         </View>
         <View style={styles.continueButtonContainer}>
-          <TouchableOpacity
-            style={styles.continueButton}
-            onPress={purchaseSub}
-          >
+          <TouchableOpacity style={styles.continueButton} onPress={purchaseSub}>
             <Text style={[styles.text, { color: "#fff" }]}>Continue</Text>
           </TouchableOpacity>
         </View>
@@ -84,15 +107,15 @@ const styles = {
     padding: 20,
     width: width - 15,
     marginTop: 40,
-    paddingBottom: 0,
+    paddingBottom: 0
   },
   bgContainer: {
-    flex: .7,
+    flex: 0.7,
     backgroundColor: "#FFF5F7",
     padding: wp(11),
     paddingTop: width * 0.5,
     position: "relative",
-    borderRadius: 20,
+    borderRadius: 20
     // alignSelf: "flex-end"
   },
   bg: {
@@ -107,11 +130,11 @@ const styles = {
     color: "#000",
     fontSize: wp(3.8),
     textAlign: "center",
-    fontFamily:'Khula-Bold'
+    fontFamily: "Khula-Bold"
     // lineHeight:30
   },
   continueButtonContainer: {
-    flex:.25,
+    flex: 0.25,
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 10
@@ -120,7 +143,7 @@ const styles = {
     backgroundColor: "#FF6F87",
     borderRadius: 30,
     padding: 15,
-    width: width - 60,
+    width: width - 60
   }
 };
 export default PayWall;

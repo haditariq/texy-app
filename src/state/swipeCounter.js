@@ -15,11 +15,14 @@ export const SwipeCounterSlice = createSlice({
     },
     subscribe: (state) => {
       state.isSubscribed = true;
+    },
+    unSubscribe: (state) => {
+      state.isSubscribed = false;
     }
   }
 });
 
-export const { incrementSwipeCount, initializeSwiperCount, subscribe } =
+export const { incrementSwipeCount, initializeSwiperCount, subscribe, unSubscribe } =
   SwipeCounterSlice.actions;
 
 export default SwipeCounterSlice.reducer;
