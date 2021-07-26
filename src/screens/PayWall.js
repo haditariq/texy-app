@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   SafeAreaView,
   View,
@@ -12,6 +12,7 @@ import { wp } from "../utils/responsive";
 import Purchases from "react-native-purchases";
 import { useSelector, useDispatch } from "react-redux";
 import { subscribe } from "../state/swipeCounter";
+
 const { width } = Dimensions.get("window");
 
 const PayWall = (props) => {
@@ -19,17 +20,18 @@ const PayWall = (props) => {
   const count = useSelector((state) => state.SwipeCounter.count);
 
   useEffect(() => {
-  }, [input])
+  }, [])
 
   const getProducts = async () => {
     try {
       const offerings = await Purchases.getOfferings();
-      console.warn(offerings.current.availablePackages);
       if (
         offerings.current !== null &&
         offerings.current.availablePackages.length !== 0
       ) {
         // Display packages for sale
+        console.warn(offerings.current.availablePackages);
+
       }
     } catch (e) {
       alert("No products available.")
