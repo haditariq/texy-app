@@ -18,7 +18,7 @@ const { width } = Dimensions.get("window");
 const PayWall = (props) => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.SwipeCounter.count);
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
     getProducts();
@@ -32,28 +32,28 @@ const PayWall = (props) => {
         offerings.current.availablePackages.length !== 0
       ) {
         setProduct(offerings.current.availablePackages[0]);
-        console.log(product)
+        console.log(product);
       }
     } catch (e) {
       alert("No products available.");
+      setProduct({});
       return {};
     }
   };
 
   const purchaseSub = async () => {
-    // alert("IAP will appear here.");
-    // return;
-
-    // dispatch(subscribe());
-    // props.navigation.navigate("Dashboard");
-    // return;
-
     try {
       const offerings = await Purchases.getOfferings();
       if (offerings.current !== null) {
-      console.warn(offerings.current.identifier);
-        await Purchases.purchaseProduct(offerings.current.identifier, null, Purchases.PURCHASE_TYPE.INAPP);
-        // Display current offering with offerings.current
+        // console.warn(offerings.current.identifier);
+        await Purchases.purchaseProduct(
+          offerings.current.identifier,
+          null,
+          Purchases.PURCHASE_TYPE.INAPP
+        );
+        dispatch(subscribe());
+        // props.navigation.navigate("Dashboard");
+        // return;
       }
     } catch (e) {
       console.warn(e.message);
@@ -86,7 +86,10 @@ const PayWall = (props) => {
               }
             ]}
           >
-            Only {product.product.price_string}
+            Only{" "}
+            {Object.keys(product).length > 0
+              ? product.product.price_string
+              : ""}
           </Text>
         </View>
         <View style={styles.continueButtonContainer}>

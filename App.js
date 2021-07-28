@@ -18,12 +18,11 @@ const App = () => {
 
   React.useEffect(() => {
     Purchases.setDebugLogsEnabled(true);
-    Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF", "sandRequest");
+    Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF", "RESPOND_NORMALLY");
     restorePurchase()
       .then((isRestore) => {
-        console.warn({count})
         dispatch(unSubscribe());
-        if (isRestore.length) {
+        if (isRestore) {
           dispatch(subscribe());
         } else if (!isSubscribed && count === 0) {
           console.warn("is it?")
@@ -41,8 +40,8 @@ const App = () => {
   const restorePurchase = async () => {
     try {
       const restore = await Purchases.restoreTransactions();
-      console.warn(restore.activeSubscriptions);
-      return restore.activeSubscriptions;
+      // console.warn(restore.entitlements.active["texy.premium"].isActive, "restore");
+      return restore.entitlements.active["texy.premium"].isActive;
     } catch (e) {
       alert("Something went wrong. Please try later.");
       return [];
