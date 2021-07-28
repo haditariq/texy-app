@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import {
   SafeAreaView,
   View,
@@ -18,9 +18,11 @@ const { width } = Dimensions.get("window");
 const PayWall = (props) => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.SwipeCounter.count);
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
-  }, [])
+    getProducts();
+  }, []);
 
   const getProducts = async () => {
     try {
@@ -29,28 +31,28 @@ const PayWall = (props) => {
         offerings.current !== null &&
         offerings.current.availablePackages.length !== 0
       ) {
-        // Display packages for sale
-        console.warn(offerings.current.availablePackages);
-
+        setProduct(offerings.current.availablePackages[0]);
+        console.log(product)
       }
     } catch (e) {
-      alert("No products available.")
-      return {}
+      alert("No products available.");
+      return {};
     }
   };
 
   const purchaseSub = async () => {
-    alert("IAP will appear here.");
-    return;
+    // alert("IAP will appear here.");
+    // return;
 
-    dispatch(subscribe());
-    props.navigation.navigate("Dashboard");
-    return;
+    // dispatch(subscribe());
+    // props.navigation.navigate("Dashboard");
+    // return;
 
     try {
       const offerings = await Purchases.getOfferings();
-      console.warn(offerings);
       if (offerings.current !== null) {
+      console.warn(offerings.current.identifier);
+        await Purchases.purchaseProduct(offerings.current.identifier, null, Purchases.PURCHASE_TYPE.INAPP);
         // Display current offering with offerings.current
       }
     } catch (e) {
@@ -84,7 +86,7 @@ const PayWall = (props) => {
               }
             ]}
           >
-            Only 289 CZK
+            Only {product.product.price_string}
           </Text>
         </View>
         <View style={styles.continueButtonContainer}>

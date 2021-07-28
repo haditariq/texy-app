@@ -10,7 +10,7 @@ const Splash = (props) => {
       props.navigation.dispatch(
         StackActions.replace('BottomTab')
       );
-    }, 5000);
+    }, 100);
   });
 
   return (

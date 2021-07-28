@@ -3,7 +3,11 @@ import { View } from "react-native";
 import Navigation from "./src/navigation";
 import { STORAGE_KEY } from "./src/config/values";
 import { useSelector, useDispatch } from "react-redux";
-import { initializeSwiperCount, subscribe, unSubscribe } from "./src/state/swipeCounter";
+import {
+  initializeSwiperCount,
+  subscribe,
+  unSubscribe
+} from "./src/state/swipeCounter";
 import Purchases from "react-native-purchases";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -17,10 +21,12 @@ const App = () => {
     Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF", "sandRequest");
     restorePurchase()
       .then((isRestore) => {
+        console.warn({count})
         dispatch(unSubscribe());
         if (isRestore.length) {
           dispatch(subscribe());
         } else if (!isSubscribed && count === 0) {
+          console.warn("is it?")
           dispatch(initializeSwiperCount());
         } else {
           console.warn("else");
@@ -30,7 +36,7 @@ const App = () => {
         console.error("Restore Catch", err.message);
         alert("Something went wrong. Please try later.");
       });
-  }, []);
+  }, [count]);
 
   const restorePurchase = async () => {
     try {

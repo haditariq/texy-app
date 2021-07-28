@@ -8,33 +8,31 @@ export const SwipeCounterSlice = createSlice({
   },
   reducers: {
     initializeSwiperCount: (state) => {
-      console.warn("INITIALIZED")
+      console.warn("INITIALIZED");
       state.count = 0;
     },
     incrementSwipeCount: (state) => {
       state.count += 1;
-      console.log(state, "after");
-
+      console.log(state, "incrementSwipeCount");
     },
     subscribe: (state) => {
-      console.log(state);
-      state = {
-        isSubscribed : true,
-        count: state.count
-      };
-      
-      console.log(state, "after");
+      state.isSubscribed = true;
+      console.log(state, "subscribe");
     },
     unSubscribe: (state) => {
-       state = {
-        isSubscribed : false,
-        count: state.count
-      };
+      console.log(state, "pre-unSubscribe");
+
+      state.isSubscribed = false;
+      console.log(state, "unSubscribe");
     }
   }
 });
 
-export const { incrementSwipeCount, initializeSwiperCount, subscribe, unSubscribe } =
-  SwipeCounterSlice.actions;
+export const {
+  incrementSwipeCount,
+  initializeSwiperCount,
+  subscribe,
+  unSubscribe
+} = SwipeCounterSlice.actions;
 
 export default SwipeCounterSlice.reducer;
