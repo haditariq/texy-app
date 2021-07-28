@@ -32,7 +32,6 @@ const PayWall = (props) => {
         offerings.current.availablePackages.length !== 0
       ) {
         setProduct(offerings.current.availablePackages[0]);
-        console.log(product);
       }
     } catch (e) {
       alert("No products available.");
@@ -52,8 +51,8 @@ const PayWall = (props) => {
           Purchases.PURCHASE_TYPE.INAPP
         );
         dispatch(subscribe());
-        // props.navigation.navigate("Dashboard");
-        // return;
+        props.navigation.navigate("Dashboard");
+        return;
       }
     } catch (e) {
       console.warn(e.message);

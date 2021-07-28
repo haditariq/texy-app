@@ -25,7 +25,6 @@ const App = () => {
         if (isRestore) {
           dispatch(subscribe());
         } else if (!isSubscribed && count === 0) {
-          console.warn("is it?")
           dispatch(initializeSwiperCount());
         } else {
           console.warn("else");
