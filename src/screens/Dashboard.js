@@ -31,7 +31,9 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     checkSwipeLimit();
-  }, []);
+  console.warn({count, isSubscribed})
+  }, [count, isSubscribed]);
+
 
   const onSwipe = async() => {
     dispatch(incrementSwipeCount());

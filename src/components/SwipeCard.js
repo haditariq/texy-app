@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, Dimensions } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 import Copy from "./copy";
 import { wp, hp } from "../utils/responsive";
 const { width } = Dimensions.get("window");
 
-const SwipeCard = ({ card, totalPickups, count, isSubscribed, idx, MAX_SWIPES }) => {
+const SwipeCard = ({ card, totalPickups,idx, MAX_SWIPES }) => {
+  const {count, isSubscribed} = useSelector((state) => state.SwipeCounter);
   return (
     <View style={[styles.container, { opacity: 1 }]}>
       <View style={styles.topRow}>

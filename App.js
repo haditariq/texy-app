@@ -17,13 +17,15 @@ const App = () => {
   // const pick = useSelector((state) => state.PickupLines.PickupLines);
 
   React.useEffect(() => {
-    Purchases.setDebugLogsEnabled(true);
-    Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF", "RESPOND_NORMALLY");
+    // Purchases.setDebugLogsEnabled(true);
+    Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF");
     restorePurchase()
       .then((isRestore) => {
+        alert(isRestore)
         dispatch(unSubscribe());
         if (isRestore) {
           dispatch(subscribe());
+          alert(`issubs, ${isSubscribed}`)
         } else if (!isSubscribed && count === 0) {
           dispatch(initializeSwiperCount());
         } else {
@@ -32,7 +34,7 @@ const App = () => {
       })
       .catch((err) => {
         console.error("Restore Catch", err.message);
-        alert("Something went wrong. Please try later.");
+        alert(err.message);
       });
   }, [count]);
 
