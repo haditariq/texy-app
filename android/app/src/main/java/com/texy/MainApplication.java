@@ -1,4 +1,4 @@
-package com.michallangmajer.texy;
+package com.texy;
 
 import android.app.Application;
 import android.content.Context;
