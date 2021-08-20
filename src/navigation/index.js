@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -21,9 +21,10 @@ const DashboardStack = () => {
         component={Dashboard}
       />
       <Stack.Screen
-        options={{ headerShown: false }}
+        options={{  gestureEnabled: false, headerShown: false }}
         name="PayWall"
         component={PayWall}
+
       />
     </Stack.Navigator>
   );
@@ -91,9 +92,10 @@ const BottomTab = () => {
 };
 
 const Navigation = () => {
+  let platformScreen = Platform.OS === 'ios' ? "BottomTab":"Splash";
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
+      <Stack.Navigator initialRouteName={platformScreen}>
         <Stack.Screen
           options={{ headerShown: false }}
           name="Splash"

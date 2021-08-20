@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "347722179991",
+    "project_id": "texy-53299",
+    "storage_bucket": "texy-53299.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347722179991:android:e9c9662744455f24d090d2",
+        "android_client_info": {
+          "package_name": "com.michallangmajer.texy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347722179991-nra190fq06dupkkfkj61dglpa6ntl898.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6_G-hwFgeeTqRWLOwmdwXyxYeASbWYQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347722179991-nra190fq06dupkkfkj61dglpa6ntl898.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347722179991-eiasjpvnpah4l95v68vb1ofpk2kehr88.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.michallangmajer.texy",
+                "app_store_id": "1576925363"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

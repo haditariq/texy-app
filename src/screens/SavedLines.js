@@ -57,7 +57,7 @@ const SavedLines = () => {
             rightOpenValue={-85}
           />
         ) : (
-          <Text>No data</Text>
+          <Text>No saved lines at the moment. 👀</Text>
         )}
       </View>
     </SafeAreaView>

@@ -9,47 +9,37 @@ import {
   unSubscribe
 } from "./src/state/swipeCounter";
 import Purchases from "react-native-purchases";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { count, isSubscribed } = useSelector((state) => state.SwipeCounter);
-  // const pick = useSelector((state) => state.PickupLines.PickupLines);
+  const { count, isSubscribed, recentlySwiped } = useSelector(
+    (state) => state.SwipeCounter
+  );
 
   React.useEffect(() => {
     // Purchases.setDebugLogsEnabled(true);
     Purchases.setup("dSWzrIFIVTFphFZVoJaZqjeDKRijNNcF");
     restorePurchase()
       .then((isRestore) => {
-        alert(isRestore)
-        dispatch(unSubscribe());
-        if (isRestore) {
-          dispatch(subscribe());
-          alert(`issubs, ${isSubscribed}`)
-        } else if (!isSubscribed && count === 0) {
-          dispatch(initializeSwiperCount());
-        } else {
-          console.warn("else");
+        if (isRestore) dispatch(subscribe());
+        else {
+          dispatch(unSubscribe());
         }
       })
       .catch((err) => {
         console.error("Restore Catch", err.message);
-        alert(err.message);
       });
-  }, [count]);
+  }, []);
 
   const restorePurchase = async () => {
     try {
       const restore = await Purchases.restoreTransactions();
-      // console.warn(restore.entitlements.active["texy.premium"].isActive, "restore");
       return restore.entitlements.active["texy.premium"].isActive;
     } catch (e) {
-      alert("Something went wrong. Please try later.");
-      return [];
+      return false;
     }
   };
 
-  // return <View />;
   return <Navigation />;
 };
 

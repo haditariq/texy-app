@@ -19,27 +19,37 @@ import pickupLinesDataSet from "../data/pickuplinesData.json";
 import SwipeCard from "../components/SwipeCard";
 import { wp, hp } from "../utils/responsive";
 import NoMorePickUps from "../screens/NoMorePickups";
-import { StackActions } from "@react-navigation/native";
 const { width } = Dimensions.get("window");
+import { CommonActions } from "@react-navigation/native";
 
 const Dashboard = (props) => {
   const dispatch = useDispatch();
   const swiperRef = useRef(null);
-  const {count, isSubscribed} = useSelector((state) => state.SwipeCounter);
+  const { count, isSubscribed, recentlySwiped } = useSelector(
+    (state) => state.SwipeCounter
+  );
   const [randomNumber, setRandomNumber] = useState(0);
   const [onSwipedAll, setOnSwipedAll] = useState(false);
 
   useEffect(() => {
-    checkSwipeLimit();
-  console.warn({count, isSubscribed})
-  }, [count, isSubscribed]);
+    if (swiperRef.current) swiperRef.current.jumpToCardIndex(recentlySwiped);
+  }, []);
 
+  if (!isSubscribed) {
+    if (MAX_SWIPES <= parseInt(count)) {
+      // props.navigation.navigate("PayWall");
 
-  const onSwipe = async() => {
-    dispatch(incrementSwipeCount());
-    if(!isSubscribed){
-      checkSwipeLimit();
+      props.navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: "PayWall" }]
+        })
+      );
     }
+  }
+
+  const onSwipe = async () => {
+    dispatch(incrementSwipeCount());
     giveRandomNumber();
   };
 
@@ -47,18 +57,11 @@ const Dashboard = (props) => {
     setRandomNumber(randomNumber + 1);
   };
 
-  const checkSwipeLimit = () => {
-    if (!isSubscribed && MAX_SWIPES <= parseInt(count)) {
-      props.navigation.dispatch(StackActions.replace("PayWall"));
-    }
-  };
-
   const savePickupLine = () => {
     let unique_id = Math.random()
       .toString(36)
       .replace(/[^a-z]+/g, "")
       .substr(2, 10);
-    console.warn({ unique_id });
     pickupLinesDataSet[randomNumber].id = unique_id;
     dispatch(addPickupLine(pickupLinesDataSet[randomNumber]));
   };
@@ -71,7 +74,7 @@ const Dashboard = (props) => {
     swiperRef.current.swipeLeft();
   };
 
-  if (onSwipedAll) {
+  if (onSwipedAll || parseInt(count) >= pickupLinesDataSet.length) {
     return <NoMorePickUps />;
   }
 
@@ -82,7 +85,6 @@ const Dashboard = (props) => {
         <View style={styles.swipeContainer}>
           <Swiper
             ref={swiperRef}
-            // cards={pickupLinesDataSet.slice(0,20)}
             cards={pickupLinesDataSet}
             renderCard={(card, index) => (
               <SwipeCard
@@ -97,7 +99,7 @@ const Dashboard = (props) => {
             onSwiped={onSwipe}
             onSwipedRight={savePickupLine}
             onSwipedAll={() => setOnSwipedAll(true)}
-            cardIndex={0}
+            // cardIndex={count}
             backgroundColor={"transparent"}
             stackSize={3}
             disableTopSwipe={true}
@@ -134,7 +136,6 @@ const styles = {
     flexDirection: "column",
     padding: 10,
     elevation: 2
-
   },
   swipeContainer: {
     flex: 1,

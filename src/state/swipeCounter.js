@@ -4,7 +4,8 @@ export const SwipeCounterSlice = createSlice({
   name: "SwipeCounter",
   initialState: {
     count: 0,
-    isSubscribed: false
+    isSubscribed: false,
+    recentlySwiped: 0
   },
   reducers: {
     initializeSwiperCount: (state) => {
@@ -12,6 +13,7 @@ export const SwipeCounterSlice = createSlice({
     },
     incrementSwipeCount: (state) => {
       state.count += 1;
+      state.recentlySwiped += 1;
     },
     subscribe: (state) => {
       state.isSubscribed = true;
