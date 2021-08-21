@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
-import { wp } from "../../utils/responsive";
+import { wp } from "../../utils/Responsive.js";
 
 const Header = ({ text, type }) => {
   return (

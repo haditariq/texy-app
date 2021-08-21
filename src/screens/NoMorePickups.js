@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, Text, Image, Dimensions } from "react-native";
 import Header from "../components/common/Header";
-import { wp } from "../utils/responsive";
+import { wp } from "../utils/Responsive.js";
 const { width } = Dimensions.get("window");
 
 const NoMorePickUps = () => {
@@ -19,7 +19,7 @@ const NoMorePickUps = () => {
             No more pick up lines…
           </Text>
           <Text style={[styles.text, { marginTop: 20 }]}>
-            We’re crafting and testing the new pick up lines right now! 
+            We’re crafting and testing the new pick up lines right now!
           </Text>
            <Text style={[styles.text, { marginTop: 20 }]}>
             Please, check back soon.

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Dimensions } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import Copy from "./copy";
-import { wp, hp } from "../utils/responsive";
+import { wp, hp } from "../utils/Responsive.js";
 const { width } = Dimensions.get("window");
 
 const SwipeCard = ({ card, totalPickups,idx, MAX_SWIPES }) => {
@@ -10,7 +10,7 @@ const SwipeCard = ({ card, totalPickups,idx, MAX_SWIPES }) => {
   return (
     <View style={[styles.container, { opacity: 1 }]}>
       <View style={styles.topRow}>
-        {!isSubscribed  ? 
+        {!isSubscribed  ?
         <Text style={[styles.pickupText, { fontSize: wp(3.6) }]}>
           {count}/{MAX_SWIPES} Free
         </Text>: <View/>

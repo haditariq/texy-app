@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import Copy from "../components/copy";
-import { wp } from "../utils/responsive";
+import { wp } from "../utils/Responsive.js";
 
 const SavedLineCard = ({ line }) => {
   const copyToClipboard = (line) => {

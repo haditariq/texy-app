@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import Clipboard from "@react-native-community/clipboard";
-import { wp } from "../utils/responsive";
+import { wp } from "../utils/Responsive.js";
 const Copy = ({ line }) => {
   const copyToClipboard = (line) => {
     Clipboard.setString(line);

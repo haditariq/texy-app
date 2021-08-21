@@ -17,7 +17,7 @@ import { addPickupLine } from "../state/pickupLines";
 import Copy from "../components/copy";
 import pickupLinesDataSet from "../data/pickuplinesData.json";
 import SwipeCard from "../components/SwipeCard";
-import { wp, hp } from "../utils/responsive";
+import { wp, hp } from "../utils/Responsive.js";
 import NoMorePickUps from "../screens/NoMorePickups";
 const { width } = Dimensions.get("window");
 import { CommonActions } from "@react-navigation/native";

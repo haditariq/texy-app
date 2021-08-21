@@ -9,7 +9,7 @@ import {
   ActivityIndicator
 } from "react-native";
 import Header from "../components/common/Header";
-import { wp } from "../utils/responsive";
+import { wp } from "../utils/Responsive.js";
 import Purchases from "react-native-purchases";
 import { useSelector, useDispatch } from "react-redux";
 import Unorderedlist from "react-native-unordered-list";
